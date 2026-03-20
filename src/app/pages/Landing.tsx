@@ -81,7 +81,7 @@ const testimonials = [
     role: "VP of Marketing, TechFlow",
     quote:
       "DataWhisper cut our reporting time by 80%. Now I get insights in seconds instead of waiting days for the data team.",
-    avatar: "SC",
+    avatar: "https://i.pravatar.cc/150?u=sarah",
     rating: 5,
   },
   {
@@ -89,7 +89,7 @@ const testimonials = [
     role: "CEO, GrowthLabs",
     quote:
       "The AI insights are uncannily accurate. It surfaced a revenue opportunity we completely missed—added $2M to our pipeline.",
-    avatar: "MW",
+    avatar: "https://i.pravatar.cc/150?u=marcus",
     rating: 5,
   },
   {
@@ -97,7 +97,7 @@ const testimonials = [
     role: "Sales Director, Apex Corp",
     quote:
       "Our sales team finally has real-time visibility. DataWhisper is the first BI tool they actually use every day.",
-    avatar: "PS",
+    avatar: "https://i.pravatar.cc/150?u=priya",
     rating: 5,
   },
 ];
@@ -150,7 +150,7 @@ export function Landing() {
   return (
     <div
       className="min-h-screen"
-      style={{ background: "#090B13", fontFamily: "'Geist', sans-serif", color: "#fff" }}
+      style={{ background: "#090B13", color: "#fff" }}
     >
       {/* Nav */}
       <nav
@@ -540,10 +540,14 @@ export function Landing() {
                 </p>
                 <div className="flex items-center gap-3">
                   <div
-                    className="flex items-center justify-center rounded-full text-sm"
+                    className="flex items-center justify-center rounded-full text-sm overflow-hidden"
                     style={{ width: "36px", height: "36px", background: "linear-gradient(135deg, #C4FF40, #7B5CF5)", color: "#000", fontWeight: 700 }}
                   >
-                    {t.avatar}
+                    {t.avatar.startsWith("http") ? (
+                      <img src={t.avatar} alt={t.name} className="w-full h-full object-cover" />
+                    ) : (
+                      t.avatar
+                    )}
                   </div>
                   <div>
                     <p className="text-sm" style={{ color: "#fff", fontWeight: 600 }}>{t.name}</p>

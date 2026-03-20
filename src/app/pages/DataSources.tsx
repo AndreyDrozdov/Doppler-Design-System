@@ -131,7 +131,7 @@ export function DataSources() {
   return (
     <div
       className="p-6"
-      style={{ background: "#090B13", minHeight: "100%", fontFamily: "'Geist', sans-serif" }}
+      style={{ background: "#090B13", minHeight: "100%" }}
     >
       {/* Header */}
       <div className="flex items-center justify-between mb-6">

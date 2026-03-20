@@ -36,7 +36,7 @@ export function Signup() {
   return (
     <div
       className="min-h-screen flex items-center justify-center p-8"
-      style={{ background: "#090B13", fontFamily: "'Geist', sans-serif" }}
+      style={{ background: "#090B13" }}
     >
       <div className="w-full max-w-lg">
         {/* Logo */}

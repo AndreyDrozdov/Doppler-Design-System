@@ -30,10 +30,10 @@ const settingsSections = [
 ];
 
 const teamMembers = [
-  { name: "Alex Johnson", email: "alex@company.com", role: "Owner", avatar: "AJ", status: "active" },
-  { name: "Sarah Chen", email: "sarah@company.com", role: "Admin", avatar: "SC", status: "active" },
-  { name: "Marcus W.", email: "marcus@company.com", role: "Analyst", avatar: "MW", status: "active" },
-  { name: "Priya Sharma", email: "priya@company.com", role: "Viewer", avatar: "PS", status: "pending" },
+  { name: "Alex Johnson", email: "alex@company.com", role: "Owner", avatar: "https://i.pravatar.cc/150?u=alex", status: "active" },
+  { name: "Sarah Chen", email: "sarah@company.com", role: "Admin", avatar: "https://i.pravatar.cc/150?u=sarah", status: "active" },
+  { name: "Marcus W.", email: "marcus@company.com", role: "Analyst", avatar: "https://i.pravatar.cc/150?u=marcus", status: "active" },
+  { name: "Priya Sharma", email: "priya@company.com", role: "Viewer", avatar: "https://i.pravatar.cc/150?u=priya", status: "pending" },
 ];
 
 const CARD = {
@@ -67,7 +67,7 @@ export function Settings() {
   return (
     <div
       className="flex"
-      style={{ background: "#090B13", minHeight: "100%", fontFamily: "'Geist', sans-serif" }}
+      style={{ background: "#090B13", minHeight: "100%" }}
     >
       {/* Sidebar */}
       <aside
@@ -103,10 +103,10 @@ export function Settings() {
               {/* Avatar */}
               <div className="flex items-center gap-4 mb-6 pb-6" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
                 <div
-                  className="flex items-center justify-center rounded-full"
+                  className="flex items-center justify-center rounded-full overflow-hidden"
                   style={{ width: "64px", height: "64px", background: "linear-gradient(135deg, #C4FF40, #7B5CF5)", color: "#000", fontSize: "20px", fontWeight: 800 }}
                 >
-                  AJ
+                  <img src="https://i.pravatar.cc/150?u=alex" alt="Alex Johnson" className="w-full h-full object-cover" />
                 </div>
                 <div>
                   <p style={{ fontSize: "16px", fontWeight: 600, color: "#fff" }}>Alex Johnson</p>
@@ -357,10 +357,14 @@ export function Settings() {
                     style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}
                   >
                     <div
-                      className="flex items-center justify-center rounded-full text-xs flex-shrink-0"
+                      className="flex items-center justify-center rounded-full text-xs flex-shrink-0 overflow-hidden"
                       style={{ width: "36px", height: "36px", background: "linear-gradient(135deg, #C4FF40, #7B5CF5)", color: "#000", fontWeight: 700 }}
                     >
-                      {member.avatar}
+                      {member.avatar.startsWith("http") ? (
+                        <img src={member.avatar} alt={member.name} className="w-full h-full object-cover" />
+                      ) : (
+                        member.avatar
+                      )}
                     </div>
                     <div className="flex-1">
                       <p className="text-sm" style={{ color: "#fff", fontWeight: 500 }}>{member.name}</p>

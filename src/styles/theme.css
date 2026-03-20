@@ -135,7 +135,11 @@
 
   html {
     font-size: var(--font-size);
-    font-family: 'Geist', system-ui, -apple-system, sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Space Grotesk', sans-serif;
   }
 
   h1 {

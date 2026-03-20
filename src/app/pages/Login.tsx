@@ -22,7 +22,7 @@ export function Login() {
   return (
     <div
       className="min-h-screen flex"
-      style={{ background: "#090B13", fontFamily: "'Geist', sans-serif" }}
+      style={{ background: "#090B13" }}
     >
       {/* Left panel */}
       <div
@@ -85,10 +85,10 @@ export function Login() {
           </p>
           <div className="flex items-center gap-3">
             <div
-              className="flex items-center justify-center rounded-full text-xs"
+              className="flex items-center justify-center rounded-full text-xs overflow-hidden"
               style={{ width: "32px", height: "32px", background: "linear-gradient(135deg, #C4FF40, #7B5CF5)", color: "#000", fontWeight: 700 }}
             >
-              SC
+              <img src="https://i.pravatar.cc/150?u=sarah" alt="Sarah Chen" className="w-full h-full object-cover" />
             </div>
             <div>
               <p className="text-sm" style={{ color: "#fff", fontWeight: 600 }}>Sarah Chen</p>

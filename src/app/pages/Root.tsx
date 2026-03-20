@@ -41,7 +41,7 @@ export function Root() {
   return (
     <div
       className="flex h-screen overflow-hidden"
-      style={{ background: "#090B13", fontFamily: "'Geist', sans-serif" }}
+      style={{ background: "#090B13" }}
     >
       {/* Sidebar */}
       <aside
@@ -214,7 +214,7 @@ export function Root() {
               }}
             >
               <div
-                className="flex items-center justify-center rounded-full flex-shrink-0 text-xs"
+                className="flex items-center justify-center rounded-full flex-shrink-0 text-xs overflow-hidden"
                 style={{
                   width: "28px",
                   height: "28px",
@@ -223,7 +223,7 @@ export function Root() {
                   fontWeight: 700,
                 }}
               >
-                AJ
+                <img src="https://i.pravatar.cc/150?u=alex" alt="Alex Johnson" className="w-full h-full object-cover" />
               </div>
               {!collapsed && (
                 <div className="text-left overflow-hidden">

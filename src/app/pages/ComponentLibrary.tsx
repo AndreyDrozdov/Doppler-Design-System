@@ -113,7 +113,7 @@ export function ComponentLibrary() {
   return (
     <div
       className="flex"
-      style={{ background: "#090B13", minHeight: "100%", fontFamily: "'Geist', sans-serif" }}
+      style={{ background: "#090B13", minHeight: "100%" }}
     >
       {/* Section nav */}
       <aside
@@ -254,7 +254,7 @@ export function ComponentLibrary() {
                 placeholder="Write your message here..."
                 rows={3}
                 className="w-full px-3 py-2.5 rounded-xl text-sm outline-none resize-none"
-                style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "#fff", fontFamily: "'Geist', sans-serif" }}
+                style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "#fff" }}
               />
 
               <Label>Slider</Label>
@@ -639,8 +639,8 @@ export function ComponentLibrary() {
               <Label>Avatar Sizes</Label>
               <div className="flex items-end gap-4 mb-6">
                 {[20, 28, 36, 48, 64].map((size) => (
-                  <div key={size} className="flex items-center justify-center rounded-full text-xs" style={{ width: size, height: size, background: "linear-gradient(135deg, #C4FF40, #7B5CF5)", color: "#000", fontWeight: 700, fontSize: size < 28 ? 8 : size < 48 ? 10 : 16 }}>
-                    AJ
+                  <div key={size} className="flex items-center justify-center rounded-full text-xs overflow-hidden" style={{ width: size, height: size, background: "linear-gradient(135deg, #C4FF40, #7B5CF5)", color: "#000", fontWeight: 700, fontSize: size < 28 ? 8 : size < 48 ? 10 : 16 }}>
+                    <img src={`https://i.pravatar.cc/150?u=${size}`} alt="Avatar" className="w-full h-full object-cover" />
                   </div>
                 ))}
               </div>
@@ -654,7 +654,9 @@ export function ComponentLibrary() {
                 ].map((s) => (
                   <div key={s.label} className="flex flex-col items-center gap-2">
                     <div className="relative">
-                      <div className="flex items-center justify-center rounded-full text-sm" style={{ width: "44px", height: "44px", background: "linear-gradient(135deg, #C4FF40, #7B5CF5)", color: "#000", fontWeight: 700 }}>AJ</div>
+                      <div className="flex items-center justify-center rounded-full text-sm overflow-hidden" style={{ width: "44px", height: "44px", background: "linear-gradient(135deg, #C4FF40, #7B5CF5)", color: "#000", fontWeight: 700 }}>
+                        <img src={`https://i.pravatar.cc/150?u=${s.label}`} alt="User" className="w-full h-full object-cover" />
+                      </div>
                       <div className="absolute bottom-0 right-0 w-3 h-3 rounded-full border-2" style={{ background: s.color, borderColor: "#090B13" }} />
                     </div>
                     <span className="text-xs" style={{ color: "#6B7280" }}>{s.label}</span>
@@ -670,8 +672,8 @@ export function ComponentLibrary() {
                   { name: "Marcus W.", role: "Analyst", initials: "MW" },
                 ].map((m) => (
                   <div key={m.name} className="flex items-center gap-3 p-3 rounded-xl" style={{ background: "#161A28", border: "1px solid rgba(255,255,255,0.06)" }}>
-                    <div className="flex items-center justify-center rounded-full text-xs" style={{ width: "36px", height: "36px", background: "linear-gradient(135deg, #C4FF40, #7B5CF5)", color: "#000", fontWeight: 700 }}>
-                      {m.initials}
+                    <div className="flex items-center justify-center rounded-full text-xs overflow-hidden" style={{ width: "36px", height: "36px", background: "linear-gradient(135deg, #C4FF40, #7B5CF5)", color: "#000", fontWeight: 700 }}>
+                      <img src={`https://i.pravatar.cc/150?u=${m.name}`} alt={m.name} className="w-full h-full object-cover" />
                     </div>
                     <div>
                       <p className="text-sm" style={{ color: "#fff", fontWeight: 500 }}>{m.name}</p>
