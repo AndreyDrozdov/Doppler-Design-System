@@ -27,6 +27,7 @@ import {
   Tooltip,
   ResponsiveContainer,
   ReferenceDot,
+  Label,
 } from "recharts";
 
 /* ── Dashboard Demo data ── */
@@ -115,28 +116,46 @@ const dashboardMetrics = [
 
 const DASHBOARD_CYCLE = 5000;
 
-function CustomTooltip({ metric }: { metric: typeof dashboardMetrics[0] }) {
-  const lastPoint = metric.data[metric.data.length - 1];
+const AnchoredTooltip = (props: any) => {
+  const { cx, cy, fill, payload, value } = props;
+  if (!cx || !cy) return null;
+  
   return (
-    <div
-      style={{
-        background: "#1A1D2E",
-        border: "1px solid rgba(255,255,255,0.1)",
-        padding: "8px 12px",
-        fontSize: "12px",
-        minWidth: "120px",
-      }}
-    >
-      <p style={{ color: "#fff", marginBottom: "4px", fontWeight: 400 }}>{lastPoint.month}</p>
-      <p style={{ color: metric.primaryColor }}>
-        {metric.primaryKey}: {lastPoint[metric.primaryKey as keyof typeof lastPoint]}
-      </p>
-      <p style={{ color: metric.secondaryColor }}>
-        {metric.secondaryKey}: {lastPoint[metric.secondaryKey as keyof typeof lastPoint]}
-      </p>
-    </div>
+    <g style={{ pointerEvents: "none" }}>
+      {/* Dark tooltip bubble */}
+      <rect
+        x={cx - 35}
+        y={cy - 44}
+        width={70}
+        height={26}
+        rx={8}
+        fill="#111420"
+        stroke="rgba(255,255,255,0.3)"
+        strokeWidth={1.5}
+      />
+      {/* Triangle pointer */}
+      <path
+        d={`M ${cx - 6} ${cy - 18} L ${cx} ${cy - 10} L ${cx + 6} ${cy - 18} Z`}
+        fill="#111420"
+      />
+      {/* Value Text */}
+      <text
+        x={cx}
+        y={cy - 30}
+        textAnchor="middle"
+        dominantBaseline="middle"
+        fill="#fff"
+        style={{ fontSize: "12px", fontWeight: 600, fontFamily: "Inter, sans-serif" }}
+      >
+        {value}
+      </text>
+      
+      {/* The data point dot itself (white center) */}
+      <circle cx={cx} cy={cy} r={6} fill={fill} />
+      <circle cx={cx} cy={cy} r={3.5} fill="#fff" />
+    </g>
   );
-}
+};
 
 function DashboardDemo() {
   const [activeMetric, setActiveMetric] = useState(0);
@@ -160,7 +179,9 @@ function DashboardDemo() {
     return () => clearInterval(interval);
   }, [activeMetric]);
 
-  const lastPoint = metric.data[metric.data.length - 1];
+  // The "middle-ish" point for the anchored tooltip
+  const anchoredIndex = 5; // Jun
+  const anchoredPoint = metric.data[anchoredIndex];
 
   return (
     <div
@@ -284,7 +305,7 @@ function DashboardDemo() {
               transition={{ duration: 0.4 }}
             >
               <ResponsiveContainer width="100%" height={160}>
-                <AreaChart data={metric.data} margin={{ left: 10, right: 50, top: 0, bottom: 0 }}>
+                <AreaChart data={metric.data} margin={{ left: 10, right: 50, top: 40, bottom: 0 }}>
                   <defs>
                     <linearGradient id={`grad1-${activeMetric}`} x1="0" y1="0" x2="0" y2="1">
                       <stop offset="5%" stopColor={metric.primaryColor} stopOpacity={0.3} />
@@ -320,28 +341,27 @@ function DashboardDemo() {
                     animationEasing="ease-out"
                   />
                   <ReferenceDot
-                    x={lastPoint.month}
-                    y={Number(lastPoint[metric.primaryKey as keyof typeof lastPoint])}
-                    r={5}
+                    x={anchoredPoint.month}
+                    y={Number(anchoredPoint[metric.primaryKey as keyof typeof anchoredPoint])}
                     fill={metric.primaryColor}
-                    stroke="#0D0F1A"
-                    strokeWidth={2}
+                    stroke="none"
+                    isFront={true}
+                    shape={
+                      <AnchoredTooltip
+                        value={
+                          metric.primaryKey === "revenue" ? `$${anchoredPoint[metric.primaryKey as keyof typeof anchoredPoint]}M` :
+                          metric.primaryKey === "users" ? `${((anchoredPoint[metric.primaryKey as keyof typeof anchoredPoint] as unknown as number) / 1000).toFixed(1)}K` :
+                          metric.primaryKey === "conversion" ? `${anchoredPoint[metric.primaryKey as keyof typeof anchoredPoint]}%` :
+                          `$${anchoredPoint[metric.primaryKey as keyof typeof anchoredPoint]}K`
+                        }
+                      />
+                    }
                   />
                 </AreaChart>
               </ResponsiveContainer>
             </motion.div>
           </AnimatePresence>
-          {/* Always-visible tooltip */}
-          <motion.div
-            className="absolute"
-            style={{ right: "60px", top: "40px" }}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.3, delay: 0.3 }}
-            key={activeMetric}
-          >
-            <CustomTooltip metric={metric} />
-          </motion.div>
+
         </div>
       </div>
     </div>
