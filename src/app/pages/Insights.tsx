@@ -135,7 +135,7 @@ const impactColors: Record<string, string> = {
 const CARD = {
   background: "#0D0F1A",
   border: "1px solid rgba(255,255,255,0.06)",
-  borderRadius: "16px",
+  borderRadius: "0",
 };
 
 export function Insights() {
@@ -158,7 +158,7 @@ export function Insights() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 style={{ fontSize: "24px", fontWeight: 700, color: "#fff", marginBottom: "4px" }}>
+          <h1 style={{ fontSize: "24px", fontWeight: 300, color: "#fff", marginBottom: "4px" }}>
             AI Insights
           </h1>
           <p style={{ color: "#6B7280", fontSize: "14px" }}>
@@ -174,7 +174,7 @@ export function Insights() {
           </button>
           <button
             className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm"
-            style={{ background: "#C4FF40", color: "#000", fontWeight: 600 }}
+            style={{ background: "#C4FF40", color: "#000", fontWeight: 400 }}
           >
             <Sparkles size={14} /> Generate Report
           </button>
@@ -197,7 +197,7 @@ export function Insights() {
               <s.icon size={18} style={{ color: s.color }} />
             </div>
             <div>
-              <p style={{ fontSize: "20px", fontWeight: 800, color: "#fff" }}>{s.value}</p>
+              <p style={{ fontSize: "20px", fontWeight: 400, color: "#fff" }}>{s.value}</p>
               <p className="text-xs" style={{ color: "#6B7280" }}>{s.label}</p>
             </div>
           </div>
@@ -251,7 +251,7 @@ export function Insights() {
                   </div>
                   <span
                     className="text-xs px-2 py-1 rounded-full"
-                    style={{ background: `${impactColors[insight.impact]}15`, color: impactColors[insight.impact], fontWeight: 600 }}
+                    style={{ background: `${impactColors[insight.impact]}15`, color: impactColors[insight.impact], fontWeight: 400 }}
                   >
                     {insight.impact} Impact
                   </span>
@@ -265,7 +265,7 @@ export function Insights() {
                   </div>
                 </div>
 
-                <h3 className="mb-2" style={{ fontSize: "16px", fontWeight: 700, color: "#fff" }}>
+                <h3 className="mb-2" style={{ fontSize: "16px", fontWeight: 300, color: "#fff" }}>
                   {insight.title}
                 </h3>
                 <p className="text-sm leading-relaxed mb-4" style={{ color: "#8892A4" }}>
@@ -293,7 +293,7 @@ export function Insights() {
                       className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs transition-all"
                       style={
                         i === 0
-                          ? { background: "#C4FF40", color: "#000", fontWeight: 600 }
+                          ? { background: "#C4FF40", color: "#000", fontWeight: 400 }
                           : { background: "rgba(255,255,255,0.06)", color: "#fff" }
                       }
                     >

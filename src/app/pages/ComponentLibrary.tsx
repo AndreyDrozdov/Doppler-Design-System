@@ -84,21 +84,21 @@ const radarData = [
 const CARD = {
   background: "#0D0F1A",
   border: "1px solid rgba(255,255,255,0.06)",
-  borderRadius: "16px",
+  borderRadius: "0",
   padding: "24px",
   marginBottom: "24px",
 };
 
 function SectionTitle({ label }: { label: string }) {
   return (
-    <h2 style={{ fontSize: "16px", fontWeight: 700, color: "#fff", marginBottom: "16px" }}>
+    <h2 style={{ fontSize: "16px", fontWeight: 300, color: "#fff", marginBottom: "16px" }}>
       {label}
     </h2>
   );
 }
 
 function Label({ children }: { children: React.ReactNode }) {
-  return <p className="text-xs mb-3" style={{ color: "#4A5568", fontWeight: 500 }}>{children}</p>;
+  return <p className="text-xs mb-3" style={{ color: "#4A5568", fontWeight: 300 }}>{children}</p>;
 }
 
 export function ComponentLibrary() {
@@ -120,7 +120,7 @@ export function ComponentLibrary() {
         className="w-48 flex-shrink-0 p-4 sticky top-0 h-screen overflow-auto"
         style={{ borderRight: "1px solid rgba(255,255,255,0.06)" }}
       >
-        <p className="text-xs mb-3 px-2" style={{ color: "#4A5568", fontWeight: 600 }}>COMPONENTS</p>
+        <p className="text-xs mb-3 px-2" style={{ color: "#4A5568", fontWeight: 400 }}>COMPONENTS</p>
         {sections.map((s) => (
           <button
             key={s}
@@ -139,7 +139,7 @@ export function ComponentLibrary() {
 
       <main className="flex-1 p-6 overflow-auto">
         <div className="mb-6">
-          <h1 style={{ fontSize: "24px", fontWeight: 700, color: "#fff" }}>Component Library</h1>
+          <h1 style={{ fontSize: "24px", fontWeight: 300, color: "#fff" }}>Component Library</h1>
           <p style={{ color: "#6B7280", fontSize: "14px" }}>DataWhisper UI components and design system</p>
         </div>
 
@@ -158,7 +158,7 @@ export function ComponentLibrary() {
                     style={{
                       background: "#C4FF40",
                       color: "#000",
-                      fontWeight: 700,
+                      fontWeight: 300,
                       padding: size === "sm" ? "6px 14px" : size === "lg" ? "14px 28px" : "10px 20px",
                       fontSize: size === "sm" ? "12px" : size === "lg" ? "15px" : "13px",
                     }}
@@ -195,7 +195,7 @@ export function ComponentLibrary() {
                 <button className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm" style={{ background: "rgba(239,68,68,0.1)", color: "#EF4444", border: "1px solid rgba(239,68,68,0.2)" }}>
                   <Trash2 size={14} /> Danger
                 </button>
-                <button className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm" style={{ background: "#C4FF40", color: "#000", fontWeight: 700 }}>
+                <button className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm" style={{ background: "#C4FF40", color: "#000", fontWeight: 300 }}>
                   <Plus size={14} /> Add New
                 </button>
                 <button className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm" style={{ background: "rgba(123,92,245,0.1)", color: "#7B5CF5", border: "1px solid rgba(123,92,245,0.2)" }}>
@@ -204,7 +204,7 @@ export function ComponentLibrary() {
                 <button className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm" style={{ background: "rgba(255,255,255,0.04)", color: "#8892A4" }} disabled>
                   Disabled
                 </button>
-                <button className="flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-sm" style={{ background: "rgba(196,255,64,0.5)", color: "#000", fontWeight: 700 }}>
+                <button className="flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-sm" style={{ background: "rgba(196,255,64,0.5)", color: "#000", fontWeight: 300 }}>
                   <div className="w-4 h-4 rounded-full border-2 border-black/30 border-t-black animate-spin" />
                   Loading...
                 </button>
@@ -268,7 +268,7 @@ export function ComponentLibrary() {
                   className="flex-1"
                   style={{ accentColor: "#C4FF40" }}
                 />
-                <span className="text-sm w-8 text-right" style={{ color: "#C4FF40", fontWeight: 700 }}>{sliderVal}%</span>
+                <span className="text-sm w-8 text-right" style={{ color: "#C4FF40", fontWeight: 300 }}>{sliderVal}%</span>
               </div>
             </div>
 
@@ -328,7 +328,7 @@ export function ComponentLibrary() {
                   { label: "Beta", bg: "rgba(123,92,245,0.1)", color: "#7B5CF5" },
                   { label: "New", bg: "rgba(56,189,248,0.1)", color: "#38BDF8" },
                 ].map((b) => (
-                  <span key={b.label} className="px-2.5 py-1 rounded-full text-xs" style={{ background: b.bg, color: b.color, fontWeight: 600 }}>
+                  <span key={b.label} className="px-2.5 py-1 rounded-full text-xs" style={{ background: b.bg, color: b.color, fontWeight: 400 }}>
                     {b.label}
                   </span>
                 ))}
@@ -357,11 +357,11 @@ export function ComponentLibrary() {
                         <circle cx="18" cy="18" r="14" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="3" />
                         <circle cx="18" cy="18" r="14" fill="none" stroke={c.color} strokeWidth="3" strokeDasharray={`${(c.value / 100) * 88} 88`} strokeLinecap="round" />
                       </svg>
-                      <div className="absolute inset-0 flex items-center justify-center text-xs" style={{ color: c.color, fontWeight: 700 }}></div>
+                      <div className="absolute inset-0 flex items-center justify-center text-xs" style={{ color: c.color, fontWeight: 300 }}></div>
                     </div>
                     <div>
                       <p className="text-xs" style={{ color: "#8892A4" }}>{c.label} Confidence</p>
-                      <p className="text-sm" style={{ color: "#fff", fontWeight: 700 }}>{c.value}%</p>
+                      <p className="text-sm" style={{ color: "#fff", fontWeight: 300 }}>{c.value}%</p>
                     </div>
                   </div>
                 ))}
@@ -382,14 +382,14 @@ export function ComponentLibrary() {
                     <p className="text-xs" style={{ color: "#6B7280" }}>Total Revenue</p>
                     <TrendingUp size={14} style={{ color: "#C4FF40" }} />
                   </div>
-                  <p style={{ fontSize: "24px", fontWeight: 800, color: "#fff" }}>$2.4M</p>
+                  <p style={{ fontSize: "24px", fontWeight: 400, color: "#fff" }}>$2.4M</p>
                   <span className="text-xs px-2 py-0.5 rounded" style={{ background: "rgba(196,255,64,0.1)", color: "#C4FF40" }}>+18.2%</span>
                 </div>
 
                 {/* Sparkline card */}
                 <div className="p-5 rounded-2xl" style={{ background: "#161A28", border: "1px solid rgba(255,255,255,0.06)" }}>
                   <p className="text-xs mb-1" style={{ color: "#6B7280" }}>Active Users</p>
-                  <p style={{ fontSize: "24px", fontWeight: 800, color: "#fff" }}>14,832</p>
+                  <p style={{ fontSize: "24px", fontWeight: 400, color: "#fff" }}>14,832</p>
                   <ResponsiveContainer width="100%" height={48}>
                     <AreaChart data={sparklineData}>
                       <defs>
@@ -406,7 +406,7 @@ export function ComponentLibrary() {
                 {/* Progress card */}
                 <div className="p-5 rounded-2xl" style={{ background: "#161A28", border: "1px solid rgba(255,255,255,0.06)" }}>
                   <p className="text-xs mb-3" style={{ color: "#6B7280" }}>Goal Progress</p>
-                  <p style={{ fontSize: "24px", fontWeight: 800, color: "#fff" }}>68%</p>
+                  <p style={{ fontSize: "24px", fontWeight: 400, color: "#fff" }}>68%</p>
                   <div className="mt-3 h-2 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.06)" }}>
                     <div className="h-full rounded-full" style={{ width: "68%", background: "linear-gradient(90deg, #7B5CF5, #C4FF40)" }} />
                   </div>
@@ -422,7 +422,7 @@ export function ComponentLibrary() {
                   <Database size={20} style={{ color: "#C4FF40" }} />
                 </div>
                 <div className="flex-1">
-                  <h4 style={{ color: "#fff", fontWeight: 600 }}>Snowflake Integration</h4>
+                  <h4 style={{ color: "#fff", fontWeight: 400 }}>Snowflake Integration</h4>
                   <p className="text-sm" style={{ color: "#6B7280" }}>18.2M records synced · Last sync 30s ago</p>
                 </div>
                 <ChevronDown size={16} style={{ color: "#6B7280", transform: "rotate(-90deg)" }} />
@@ -482,7 +482,7 @@ export function ComponentLibrary() {
                       </defs>
                       <CartesianGrid stroke="rgba(255,255,255,0.04)" vertical={false} />
                       <Area type="monotone" dataKey="v" stroke="#C4FF40" strokeWidth={2} fill="url(#chartArea)" />
-                      <Tooltip contentStyle={{ background: "#1A1D2E", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "8px", color: "#fff", fontSize: "12px" }} />
+                      <Tooltip contentStyle={{ background: "#1A1D2E", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "0", color: "#fff", fontSize: "12px" }} />
                     </AreaChart>
                   </ResponsiveContainer>
                 </div>
@@ -492,7 +492,7 @@ export function ComponentLibrary() {
                     <BarChart data={sparklineData}>
                       <CartesianGrid stroke="rgba(255,255,255,0.04)" vertical={false} />
                       <Bar dataKey="v" fill="#7B5CF5" radius={[4, 4, 0, 0]} />
-                      <Tooltip contentStyle={{ background: "#1A1D2E", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "8px", color: "#fff", fontSize: "12px" }} />
+                      <Tooltip contentStyle={{ background: "#1A1D2E", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "0", color: "#fff", fontSize: "12px" }} />
                     </BarChart>
                   </ResponsiveContainer>
                 </div>
@@ -503,7 +503,7 @@ export function ComponentLibrary() {
                       <Pie data={pieData} cx="50%" cy="50%" innerRadius={35} outerRadius={55} paddingAngle={3} dataKey="value">
                         {pieData.map((entry, i) => <Cell key={i} fill={entry.color} />)}
                       </Pie>
-                      <Tooltip contentStyle={{ background: "#1A1D2E", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "8px", color: "#fff", fontSize: "12px" }} />
+                      <Tooltip contentStyle={{ background: "#1A1D2E", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "0", color: "#fff", fontSize: "12px" }} />
                     </PieChart>
                   </ResponsiveContainer>
                 </div>
@@ -535,7 +535,7 @@ export function ComponentLibrary() {
                   <Sparkles size={18} style={{ color: "#C4FF40" }} />
                 </div>
                 <input value={aiQuery} onChange={(e) => setAiQuery(e.target.value)} placeholder="Ask anything about your data..." className="flex-1 bg-transparent border-none outline-none text-sm" style={{ color: "#fff" }} />
-                <button className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm" style={{ background: "#C4FF40", color: "#000", fontWeight: 600 }}>
+                <button className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm" style={{ background: "#C4FF40", color: "#000", fontWeight: 400 }}>
                   <ArrowRight size={14} /> Ask AI
                 </button>
               </div>
@@ -544,14 +544,14 @@ export function ComponentLibrary() {
               <div className="p-5 rounded-2xl mb-6" style={{ background: "#161A28", border: "1px solid rgba(123,92,245,0.2)" }}>
                 <div className="flex items-center gap-2 mb-3">
                   <Brain size={16} style={{ color: "#7B5CF5" }} />
-                  <span className="text-sm" style={{ color: "#7B5CF5", fontWeight: 600 }}>AI Analysis</span>
+                  <span className="text-sm" style={{ color: "#7B5CF5", fontWeight: 400 }}>AI Analysis</span>
                   <span className="ml-auto text-xs px-2 py-0.5 rounded" style={{ background: "rgba(196,255,64,0.1)", color: "#C4FF40" }}>94% confidence</span>
                 </div>
                 <p className="text-sm mb-4" style={{ color: "#8892A4", lineHeight: 1.7 }}>
                   Based on the last 30 days of data, revenue is trending 18% above target. The primary driver is enterprise deal closures in the East region, which increased by 34%. I recommend allocating additional sales resources to this region.
                 </p>
                 <div className="flex gap-2">
-                  <button className="px-3 py-1.5 rounded-lg text-xs" style={{ background: "#C4FF40", color: "#000", fontWeight: 600 }}>Take Action</button>
+                  <button className="px-3 py-1.5 rounded-lg text-xs" style={{ background: "#C4FF40", color: "#000", fontWeight: 400 }}>Take Action</button>
                   <button className="px-3 py-1.5 rounded-lg text-xs" style={{ background: "rgba(255,255,255,0.06)", color: "#8892A4" }}>Show Evidence</button>
                   <button className="px-3 py-1.5 rounded-lg text-xs" style={{ background: "rgba(255,255,255,0.06)", color: "#8892A4" }}>Share</button>
                 </div>
@@ -585,7 +585,7 @@ export function ComponentLibrary() {
                   <thead>
                     <tr style={{ background: "#161A28" }}>
                       {["Name", "Revenue", "Status", "Growth", "Actions"].map((h) => (
-                        <th key={h} className="text-left px-4 py-3 text-xs" style={{ color: "#4A5568", fontWeight: 600 }}>{h}</th>
+                        <th key={h} className="text-left px-4 py-3 text-xs" style={{ color: "#4A5568", fontWeight: 400 }}>{h}</th>
                       ))}
                     </tr>
                   </thead>
@@ -597,7 +597,7 @@ export function ComponentLibrary() {
                       { name: "Report Builder", rev: "$54K", status: "error", growth: -4 },
                     ].map((row, i) => (
                       <tr key={i} className="transition-colors hover:bg-white/[0.02]" style={{ borderTop: "1px solid rgba(255,255,255,0.04)" }}>
-                        <td className="px-4 py-3" style={{ color: "#fff", fontWeight: 500 }}>{row.name}</td>
+                        <td className="px-4 py-3" style={{ color: "#fff", fontWeight: 300 }}>{row.name}</td>
                         <td className="px-4 py-3" style={{ color: "#fff" }}>{row.rev}</td>
                         <td className="px-4 py-3">
                           <span className="text-xs px-2 py-1 rounded-full" style={{
@@ -610,7 +610,7 @@ export function ComponentLibrary() {
                         <td className="px-4 py-3">
                           <div className="flex items-center gap-1">
                             {row.growth > 0 ? <TrendingUp size={12} style={{ color: "#C4FF40" }} /> : <TrendingDown size={12} style={{ color: "#EF4444" }} />}
-                            <span style={{ color: row.growth > 0 ? "#C4FF40" : "#EF4444", fontWeight: 600 }}>
+                            <span style={{ color: row.growth > 0 ? "#C4FF40" : "#EF4444", fontWeight: 400 }}>
                               {row.growth > 0 ? "+" : ""}{row.growth}%
                             </span>
                           </div>
@@ -639,7 +639,7 @@ export function ComponentLibrary() {
               <Label>Avatar Sizes</Label>
               <div className="flex items-end gap-4 mb-6">
                 {[20, 28, 36, 48, 64].map((size) => (
-                  <div key={size} className="flex items-center justify-center rounded-full text-xs overflow-hidden" style={{ width: size, height: size, background: "linear-gradient(135deg, #C4FF40, #7B5CF5)", color: "#000", fontWeight: 700, fontSize: size < 28 ? 8 : size < 48 ? 10 : 16 }}>
+                  <div key={size} className="flex items-center justify-center rounded-full text-xs overflow-hidden" style={{ width: size, height: size, background: "linear-gradient(135deg, #C4FF40, #7B5CF5)", color: "#000", fontWeight: 300, fontSize: size < 28 ? 8 : size < 48 ? 10 : 16 }}>
                     <img src={`https://i.pravatar.cc/150?u=${size}`} alt="Avatar" className="w-full h-full object-cover" />
                   </div>
                 ))}
@@ -654,7 +654,7 @@ export function ComponentLibrary() {
                 ].map((s) => (
                   <div key={s.label} className="flex flex-col items-center gap-2">
                     <div className="relative">
-                      <div className="flex items-center justify-center rounded-full text-sm overflow-hidden" style={{ width: "44px", height: "44px", background: "linear-gradient(135deg, #C4FF40, #7B5CF5)", color: "#000", fontWeight: 700 }}>
+                      <div className="flex items-center justify-center rounded-full text-sm overflow-hidden" style={{ width: "44px", height: "44px", background: "linear-gradient(135deg, #C4FF40, #7B5CF5)", color: "#000", fontWeight: 300 }}>
                         <img src={`https://i.pravatar.cc/150?u=${s.label}`} alt="User" className="w-full h-full object-cover" />
                       </div>
                       <div className="absolute bottom-0 right-0 w-3 h-3 rounded-full border-2" style={{ background: s.color, borderColor: "#090B13" }} />
@@ -672,11 +672,11 @@ export function ComponentLibrary() {
                   { name: "Marcus W.", role: "Analyst", initials: "MW" },
                 ].map((m) => (
                   <div key={m.name} className="flex items-center gap-3 p-3 rounded-xl" style={{ background: "#161A28", border: "1px solid rgba(255,255,255,0.06)" }}>
-                    <div className="flex items-center justify-center rounded-full text-xs overflow-hidden" style={{ width: "36px", height: "36px", background: "linear-gradient(135deg, #C4FF40, #7B5CF5)", color: "#000", fontWeight: 700 }}>
+                    <div className="flex items-center justify-center rounded-full text-xs overflow-hidden" style={{ width: "36px", height: "36px", background: "linear-gradient(135deg, #C4FF40, #7B5CF5)", color: "#000", fontWeight: 300 }}>
                       <img src={`https://i.pravatar.cc/150?u=${m.name}`} alt={m.name} className="w-full h-full object-cover" />
                     </div>
                     <div>
-                      <p className="text-sm" style={{ color: "#fff", fontWeight: 500 }}>{m.name}</p>
+                      <p className="text-sm" style={{ color: "#fff", fontWeight: 300 }}>{m.name}</p>
                       <p className="text-xs" style={{ color: "#6B7280" }}>{m.role}</p>
                     </div>
                   </div>
@@ -722,7 +722,7 @@ export function ComponentLibrary() {
                   <div key={p.label}>
                     <div className="flex justify-between text-xs mb-1">
                       <span style={{ color: "#8892A4" }}>{p.label}</span>
-                      <span style={{ color: "#fff", fontWeight: 600 }}>{p.value}%</span>
+                      <span style={{ color: "#fff", fontWeight: 400 }}>{p.value}%</span>
                     </div>
                     <div className="h-2 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.06)" }}>
                       <div className="h-full rounded-full transition-all" style={{ width: `${p.value}%`, background: p.color }} />

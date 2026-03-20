@@ -42,11 +42,11 @@ export function Login() {
             >
               <Activity size={18} color="#000" />
             </div>
-            <span style={{ fontWeight: 700, fontSize: "16px", color: "#fff" }}>DataWhisper</span>
+            <span style={{ fontWeight: 300, fontSize: "16px", color: "#fff" }}>DataWhisper</span>
           </div>
 
           <h2
-            style={{ fontSize: "32px", fontWeight: 800, color: "#fff", lineHeight: 1.2, letterSpacing: "-1px", marginBottom: "16px" }}
+            style={{ fontSize: "32px", fontWeight: 400, color: "#fff", lineHeight: 1.2, letterSpacing: "-1px", marginBottom: "16px" }}
           >
             Turn your data into decisions
           </h2>
@@ -86,12 +86,12 @@ export function Login() {
           <div className="flex items-center gap-3">
             <div
               className="flex items-center justify-center rounded-full text-xs overflow-hidden"
-              style={{ width: "32px", height: "32px", background: "linear-gradient(135deg, #C4FF40, #7B5CF5)", color: "#000", fontWeight: 700 }}
+              style={{ width: "32px", height: "32px", background: "linear-gradient(135deg, #C4FF40, #7B5CF5)", color: "#000", fontWeight: 300 }}
             >
               <img src="https://i.pravatar.cc/150?u=sarah" alt="Sarah Chen" className="w-full h-full object-cover" />
             </div>
             <div>
-              <p className="text-sm" style={{ color: "#fff", fontWeight: 600 }}>Sarah Chen</p>
+              <p className="text-sm" style={{ color: "#fff", fontWeight: 400 }}>Sarah Chen</p>
               <p className="text-xs" style={{ color: "#6B7280" }}>VP Marketing, TechFlow</p>
             </div>
           </div>
@@ -109,10 +109,10 @@ export function Login() {
             >
               <Activity size={18} color="#000" />
             </div>
-            <span style={{ fontWeight: 700, color: "#fff" }}>DataWhisper</span>
+            <span style={{ fontWeight: 300, color: "#fff" }}>DataWhisper</span>
           </div>
 
-          <h1 style={{ fontSize: "28px", fontWeight: 800, color: "#fff", marginBottom: "8px" }}>
+          <h1 style={{ fontSize: "28px", fontWeight: 400, color: "#fff", marginBottom: "8px" }}>
             Welcome back
           </h1>
           <p className="mb-8" style={{ color: "#6B7280" }}>
@@ -196,7 +196,7 @@ export function Login() {
               style={{
                 background: loading ? "rgba(196,255,64,0.5)" : "#C4FF40",
                 color: "#000",
-                fontWeight: 700,
+                fontWeight: 300,
               }}
             >
               {loading ? (
@@ -209,7 +209,7 @@ export function Login() {
 
           <p className="text-center text-sm mt-6" style={{ color: "#6B7280" }}>
             Don't have an account?{" "}
-            <Link to="/signup" style={{ color: "#C4FF40", fontWeight: 600 }}>
+            <Link to="/signup" style={{ color: "#C4FF40", fontWeight: 400 }}>
               Sign up free
             </Link>
           </p>

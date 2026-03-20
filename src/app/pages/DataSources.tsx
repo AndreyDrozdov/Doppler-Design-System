@@ -109,7 +109,7 @@ const statusConfig: Record<string, { label: string; color: string; icon: any; bg
 const CARD = {
   background: "#0D0F1A",
   border: "1px solid rgba(255,255,255,0.06)",
-  borderRadius: "16px",
+  borderRadius: "0",
 };
 
 export function DataSources() {
@@ -136,7 +136,7 @@ export function DataSources() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 style={{ fontSize: "24px", fontWeight: 700, color: "#fff", marginBottom: "4px" }}>
+          <h1 style={{ fontSize: "24px", fontWeight: 300, color: "#fff", marginBottom: "4px" }}>
             Data Sources
           </h1>
           <p style={{ color: "#6B7280", fontSize: "14px" }}>
@@ -145,7 +145,7 @@ export function DataSources() {
         </div>
         <button
           className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm"
-          style={{ background: "#C4FF40", color: "#000", fontWeight: 600 }}
+          style={{ background: "#C4FF40", color: "#000", fontWeight: 400 }}
           onClick={() => toast.success("Opening connection wizard...")}
         >
           <Plus size={16} /> Add Source
@@ -168,7 +168,7 @@ export function DataSources() {
               <s.icon size={18} style={{ color: s.color }} />
             </div>
             <div>
-              <p style={{ fontSize: "20px", fontWeight: 800, color: "#fff" }}>{s.value}</p>
+              <p style={{ fontSize: "20px", fontWeight: 400, color: "#fff" }}>{s.value}</p>
               <p className="text-xs" style={{ color: "#6B7280" }}>{s.label}</p>
             </div>
           </div>
@@ -191,7 +191,7 @@ export function DataSources() {
       </div>
 
       {/* Connected sources */}
-      <h2 className="text-sm mb-3" style={{ color: "#8892A4", fontWeight: 600 }}>
+      <h2 className="text-sm mb-3" style={{ color: "#8892A4", fontWeight: 400 }}>
         CONNECTED SOURCES ({sources.length})
       </h2>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-8">
@@ -205,13 +205,13 @@ export function DataSources() {
                   {/* Icon */}
                   <div
                     className="flex items-center justify-center rounded-xl text-sm flex-shrink-0"
-                    style={{ width: "44px", height: "44px", background: `${source.color}20`, color: source.color, fontWeight: 700, fontSize: "13px" }}
+                    style={{ width: "44px", height: "44px", background: `${source.color}20`, color: source.color, fontWeight: 300, fontSize: "13px" }}
                   >
                     {source.icon}
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-0.5">
-                      <h3 style={{ fontSize: "15px", fontWeight: 600, color: "#fff" }}>{source.name}</h3>
+                      <h3 style={{ fontSize: "15px", fontWeight: 400, color: "#fff" }}>{source.name}</h3>
                       <span className="text-xs px-2 py-0.5 rounded" style={{ background: "rgba(255,255,255,0.06)", color: "#6B7280" }}>
                         {source.category}
                       </span>
@@ -226,12 +226,12 @@ export function DataSources() {
                           style={{ background: sc.bg }}
                         >
                           <sc.icon size={12} style={{ color: sc.color }} className={source.status === "syncing" ? "animate-spin" : ""} />
-                          <span className="text-xs" style={{ color: sc.color, fontWeight: 600 }}>{sc.label}</span>
+                          <span className="text-xs" style={{ color: sc.color, fontWeight: 400 }}>{sc.label}</span>
                         </div>
                       </div>
                       <div>
                         <p className="text-xs mb-0.5" style={{ color: "#4A5568" }}>Records</p>
-                        <p className="text-sm" style={{ color: "#fff", fontWeight: 600 }}>{source.records}</p>
+                        <p className="text-sm" style={{ color: "#fff", fontWeight: 400 }}>{source.records}</p>
                       </div>
                       <div>
                         <p className="text-xs mb-0.5" style={{ color: "#4A5568" }}>Last sync</p>
@@ -244,7 +244,7 @@ export function DataSources() {
                         <button
                           onClick={() => handleReconnect(source.name)}
                           className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs"
-                          style={{ background: "rgba(239,68,68,0.1)", color: "#EF4444", fontWeight: 600 }}
+                          style={{ background: "rgba(239,68,68,0.1)", color: "#EF4444", fontWeight: 400 }}
                         >
                           <Link size={12} /> Reconnect
                         </button>
@@ -275,7 +275,7 @@ export function DataSources() {
       </div>
 
       {/* Available integrations */}
-      <h2 className="text-sm mb-3" style={{ color: "#8892A4", fontWeight: 600 }}>
+      <h2 className="text-sm mb-3" style={{ color: "#8892A4", fontWeight: 400 }}>
         AVAILABLE INTEGRATIONS
       </h2>
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
@@ -288,19 +288,19 @@ export function DataSources() {
             <div className="flex items-center justify-between mb-3">
               <div
                 className="flex items-center justify-center rounded-lg text-xs"
-                style={{ width: "36px", height: "36px", background: `${int.color}20`, color: int.color === "#fff" ? "#8892A4" : int.color, fontWeight: 700, fontSize: "12px" }}
+                style={{ width: "36px", height: "36px", background: `${int.color}20`, color: int.color === "#fff" ? "#8892A4" : int.color, fontWeight: 300, fontSize: "12px" }}
               >
                 {int.icon}
               </div>
               <button
                 onClick={() => handleConnect(int.name)}
                 className="flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs transition-all"
-                style={{ background: "rgba(196,255,64,0.08)", color: "#C4FF40", fontWeight: 600 }}
+                style={{ background: "rgba(196,255,64,0.08)", color: "#C4FF40", fontWeight: 400 }}
               >
                 <Plus size={10} /> Connect
               </button>
             </div>
-            <p className="text-sm" style={{ color: "#fff", fontWeight: 600 }}>{int.name}</p>
+            <p className="text-sm" style={{ color: "#fff", fontWeight: 400 }}>{int.name}</p>
             <p className="text-xs" style={{ color: "#6B7280" }}>{int.category}</p>
           </div>
         ))}

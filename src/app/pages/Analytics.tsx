@@ -87,7 +87,7 @@ const heatmapData = [
 const CARD = {
   background: "#0D0F1A",
   border: "1px solid rgba(255,255,255,0.06)",
-  borderRadius: "16px",
+  borderRadius: "0",
 };
 
 function getHeatColor(value: number): string {
@@ -110,7 +110,7 @@ export function Analytics() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 style={{ fontSize: "24px", fontWeight: 700, color: "#fff", marginBottom: "4px" }}>
+          <h1 style={{ fontSize: "24px", fontWeight: 300, color: "#fff", marginBottom: "4px" }}>
             Analytics
           </h1>
           <p style={{ color: "#6B7280", fontSize: "14px" }}>
@@ -132,7 +132,7 @@ export function Analytics() {
           </button>
           <button
             className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm"
-            style={{ background: "#C4FF40", color: "#000", fontWeight: 600 }}
+            style={{ background: "#C4FF40", color: "#000", fontWeight: 400 }}
           >
             Last 12 months <ChevronDown size={14} />
           </button>
@@ -167,10 +167,10 @@ export function Analytics() {
         ].map((kpi) => (
           <div key={kpi.label} className="p-4 rounded-2xl" style={CARD}>
             <p className="text-xs mb-2" style={{ color: "#6B7280" }}>{kpi.label}</p>
-            <p style={{ fontSize: "22px", fontWeight: 800, color: "#fff" }}>{kpi.value}</p>
+            <p style={{ fontSize: "22px", fontWeight: 400, color: "#fff" }}>{kpi.value}</p>
             <div className="flex items-center gap-1 mt-1">
               <ArrowUpRight size={12} style={{ color: "#C4FF40" }} />
-              <span className="text-xs" style={{ color: "#C4FF40", fontWeight: 600 }}>{kpi.change}</span>
+              <span className="text-xs" style={{ color: "#C4FF40", fontWeight: 400 }}>{kpi.change}</span>
             </div>
           </div>
         ))}
@@ -181,7 +181,7 @@ export function Analytics() {
         <div className="lg:col-span-2 p-5 rounded-2xl" style={CARD}>
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h3 style={{ fontSize: "15px", fontWeight: 600, color: "#fff" }}>Revenue by Segment</h3>
+              <h3 style={{ fontSize: "15px", fontWeight: 400, color: "#fff" }}>Revenue by Segment</h3>
               <p className="text-xs mt-0.5" style={{ color: "#6B7280" }}>B2B vs B2C stacked</p>
             </div>
             <div className="flex items-center gap-4 text-xs">
@@ -201,7 +201,7 @@ export function Analytics() {
               <XAxis dataKey="month" tick={{ fill: "#4A5568", fontSize: 11 }} axisLine={false} tickLine={false} />
               <YAxis tick={{ fill: "#4A5568", fontSize: 11 }} axisLine={false} tickLine={false} />
               <Tooltip
-                contentStyle={{ background: "#1A1D2E", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "8px", color: "#fff", fontSize: "12px" }}
+                contentStyle={{ background: "#1A1D2E", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "0", color: "#fff", fontSize: "12px" }}
               />
               <Bar dataKey="b2b" stackId="a" fill="#7B5CF5" name="B2B ($K)" />
               <Bar dataKey="b2c" stackId="a" fill="#C4FF40" radius={[4, 4, 0, 0]} name="B2C ($K)" />
@@ -212,7 +212,7 @@ export function Analytics() {
 
         {/* Funnel */}
         <div className="p-5 rounded-2xl" style={CARD}>
-          <h3 className="mb-1" style={{ fontSize: "15px", fontWeight: 600, color: "#fff" }}>Conversion Funnel</h3>
+          <h3 className="mb-1" style={{ fontSize: "15px", fontWeight: 400, color: "#fff" }}>Conversion Funnel</h3>
           <p className="text-xs mb-4" style={{ color: "#6B7280" }}>From visitor to customer</p>
           <div className="space-y-2">
             {funnelData.map((item, i) => {
@@ -221,7 +221,7 @@ export function Analytics() {
                 <div key={item.name}>
                   <div className="flex justify-between text-xs mb-1">
                     <span style={{ color: "#8892A4" }}>{item.name}</span>
-                    <span style={{ color: "#fff", fontWeight: 600 }}>{item.value.toLocaleString()}</span>
+                    <span style={{ color: "#fff", fontWeight: 400 }}>{item.value.toLocaleString()}</span>
                   </div>
                   <div className="h-6 rounded-lg overflow-hidden" style={{ background: "rgba(255,255,255,0.04)" }}>
                     <div
@@ -244,7 +244,7 @@ export function Analytics() {
       {/* Retention + Radar */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
         <div className="p-5 rounded-2xl" style={CARD}>
-          <h3 className="mb-1" style={{ fontSize: "15px", fontWeight: 600, color: "#fff" }}>Cohort Retention</h3>
+          <h3 className="mb-1" style={{ fontSize: "15px", fontWeight: 400, color: "#fff" }}>Cohort Retention</h3>
           <p className="text-xs mb-4" style={{ color: "#6B7280" }}>User retention over time</p>
           <ResponsiveContainer width="100%" height={180}>
             <AreaChart data={cohortData}>
@@ -258,7 +258,7 @@ export function Analytics() {
               <XAxis dataKey="week" tick={{ fill: "#4A5568", fontSize: 11 }} axisLine={false} tickLine={false} />
               <YAxis domain={[0, 100]} tick={{ fill: "#4A5568", fontSize: 11 }} axisLine={false} tickLine={false} tickFormatter={(v) => `${v}%`} />
               <Tooltip
-                contentStyle={{ background: "#1A1D2E", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "8px", color: "#fff", fontSize: "12px" }}
+                contentStyle={{ background: "#1A1D2E", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "0", color: "#fff", fontSize: "12px" }}
                 formatter={(v) => [`${v}%`, "Retention"]}
               />
               <Area type="monotone" dataKey="retention" stroke="#38BDF8" strokeWidth={2} fill="url(#retGrad)" dot={{ fill: "#38BDF8", r: 4 }} />
@@ -267,7 +267,7 @@ export function Analytics() {
         </div>
 
         <div className="p-5 rounded-2xl" style={CARD}>
-          <h3 className="mb-1" style={{ fontSize: "15px", fontWeight: 600, color: "#fff" }}>Performance Radar</h3>
+          <h3 className="mb-1" style={{ fontSize: "15px", fontWeight: 400, color: "#fff" }}>Performance Radar</h3>
           <p className="text-xs mb-4" style={{ color: "#6B7280" }}>Current vs previous period</p>
           <ResponsiveContainer width="100%" height={200}>
             <RadarChart data={radarData}>
@@ -282,7 +282,7 @@ export function Analytics() {
 
       {/* Heatmap */}
       <div className="p-5 rounded-2xl" style={CARD}>
-        <h3 className="mb-1" style={{ fontSize: "15px", fontWeight: 600, color: "#fff" }}>Activity Heatmap</h3>
+        <h3 className="mb-1" style={{ fontSize: "15px", fontWeight: 400, color: "#fff" }}>Activity Heatmap</h3>
         <p className="text-xs mb-4" style={{ color: "#6B7280" }}>User activity by hour and day</p>
         <div className="overflow-x-auto">
           <table className="w-full text-xs">

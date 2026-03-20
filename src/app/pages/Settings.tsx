@@ -39,7 +39,7 @@ const teamMembers = [
 const CARD = {
   background: "#0D0F1A",
   border: "1px solid rgba(255,255,255,0.06)",
-  borderRadius: "16px",
+  borderRadius: "0",
 };
 
 export function Settings() {
@@ -74,7 +74,7 @@ export function Settings() {
         className="w-56 flex-shrink-0 p-4"
         style={{ borderRight: "1px solid rgba(255,255,255,0.06)" }}
       >
-        <p className="text-xs mb-3 px-2" style={{ color: "#4A5568", fontWeight: 600 }}>
+        <p className="text-xs mb-3 px-2" style={{ color: "#4A5568", fontWeight: 400 }}>
           SETTINGS
         </p>
         {settingsSections.map((s) => (
@@ -98,18 +98,18 @@ export function Settings() {
       <main className="flex-1 p-6 overflow-auto">
         {activeSection === "profile" && (
           <div>
-            <h2 className="mb-6" style={{ fontSize: "20px", fontWeight: 700, color: "#fff" }}>Profile Settings</h2>
+            <h2 className="mb-6" style={{ fontSize: "20px", fontWeight: 300, color: "#fff" }}>Profile Settings</h2>
             <div className="p-6 rounded-2xl mb-4" style={CARD}>
               {/* Avatar */}
               <div className="flex items-center gap-4 mb-6 pb-6" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
                 <div
                   className="flex items-center justify-center rounded-full overflow-hidden"
-                  style={{ width: "64px", height: "64px", background: "linear-gradient(135deg, #C4FF40, #7B5CF5)", color: "#000", fontSize: "20px", fontWeight: 800 }}
+                  style={{ width: "64px", height: "64px", background: "linear-gradient(135deg, #C4FF40, #7B5CF5)", color: "#000", fontSize: "20px", fontWeight: 400 }}
                 >
                   <img src="https://i.pravatar.cc/150?u=alex" alt="Alex Johnson" className="w-full h-full object-cover" />
                 </div>
                 <div>
-                  <p style={{ fontSize: "16px", fontWeight: 600, color: "#fff" }}>Alex Johnson</p>
+                  <p style={{ fontSize: "16px", fontWeight: 400, color: "#fff" }}>Alex Johnson</p>
                   <p className="text-sm" style={{ color: "#6B7280" }}>Pro Plan · Member since Jan 2025</p>
                 </div>
                 <button
@@ -150,7 +150,7 @@ export function Settings() {
               <button
                 onClick={handleSave}
                 className="mt-4 px-5 py-2.5 rounded-xl text-sm"
-                style={{ background: "#C4FF40", color: "#000", fontWeight: 700 }}
+                style={{ background: "#C4FF40", color: "#000", fontWeight: 300 }}
               >
                 Save Changes
               </button>
@@ -161,7 +161,7 @@ export function Settings() {
               className="p-6 rounded-2xl"
               style={{ background: "#0D0F1A", border: "1px solid rgba(239,68,68,0.15)" }}
             >
-              <h3 className="mb-4" style={{ fontSize: "15px", fontWeight: 600, color: "#EF4444" }}>
+              <h3 className="mb-4" style={{ fontSize: "15px", fontWeight: 400, color: "#EF4444" }}>
                 Danger Zone
               </h3>
               <div className="flex items-center justify-between py-3" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
@@ -188,7 +188,7 @@ export function Settings() {
 
         {activeSection === "notifications" && (
           <div>
-            <h2 className="mb-6" style={{ fontSize: "20px", fontWeight: 700, color: "#fff" }}>Notifications</h2>
+            <h2 className="mb-6" style={{ fontSize: "20px", fontWeight: 300, color: "#fff" }}>Notifications</h2>
             <div className="p-6 rounded-2xl" style={CARD}>
               <div className="space-y-1">
                 {Object.entries(notifications).map(([key, value]) => {
@@ -207,7 +207,7 @@ export function Settings() {
                       style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}
                     >
                       <div>
-                        <p className="text-sm" style={{ color: "#fff", fontWeight: 500 }}>
+                        <p className="text-sm" style={{ color: "#fff", fontWeight: 300 }}>
                           {labels[key]?.label}
                         </p>
                         <p className="text-xs mt-0.5" style={{ color: "#6B7280" }}>
@@ -240,7 +240,7 @@ export function Settings() {
               <button
                 onClick={handleSave}
                 className="mt-4 px-5 py-2.5 rounded-xl text-sm"
-                style={{ background: "#C4FF40", color: "#000", fontWeight: 700 }}
+                style={{ background: "#C4FF40", color: "#000", fontWeight: 300 }}
               >
                 Save Preferences
               </button>
@@ -250,10 +250,10 @@ export function Settings() {
 
         {activeSection === "security" && (
           <div>
-            <h2 className="mb-6" style={{ fontSize: "20px", fontWeight: 700, color: "#fff" }}>Security</h2>
+            <h2 className="mb-6" style={{ fontSize: "20px", fontWeight: 300, color: "#fff" }}>Security</h2>
             <div className="space-y-4">
               <div className="p-6 rounded-2xl" style={CARD}>
-                <h3 className="mb-4" style={{ fontSize: "15px", fontWeight: 600, color: "#fff" }}>Password</h3>
+                <h3 className="mb-4" style={{ fontSize: "15px", fontWeight: 400, color: "#fff" }}>Password</h3>
                 <div className="space-y-3">
                   {["Current Password", "New Password", "Confirm New Password"].map((label) => (
                     <div key={label}>
@@ -276,7 +276,7 @@ export function Settings() {
                 <button
                   onClick={() => toast.success("Password updated successfully")}
                   className="mt-4 px-5 py-2.5 rounded-xl text-sm"
-                  style={{ background: "#C4FF40", color: "#000", fontWeight: 700 }}
+                  style={{ background: "#C4FF40", color: "#000", fontWeight: 300 }}
                 >
                   Update Password
                 </button>
@@ -284,7 +284,7 @@ export function Settings() {
 
               <div className="p-6 rounded-2xl" style={CARD}>
                 <div className="flex items-center justify-between mb-2">
-                  <h3 style={{ fontSize: "15px", fontWeight: 600, color: "#fff" }}>Two-Factor Authentication</h3>
+                  <h3 style={{ fontSize: "15px", fontWeight: 400, color: "#fff" }}>Two-Factor Authentication</h3>
                   <span className="text-xs px-2 py-1 rounded-full" style={{ background: "rgba(239,68,68,0.1)", color: "#EF4444" }}>
                     Disabled
                   </span>
@@ -295,14 +295,14 @@ export function Settings() {
                 <button
                   onClick={() => toast.success("2FA setup initiated")}
                   className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm"
-                  style={{ background: "rgba(196,255,64,0.08)", color: "#C4FF40", fontWeight: 600 }}
+                  style={{ background: "rgba(196,255,64,0.08)", color: "#C4FF40", fontWeight: 400 }}
                 >
                   <Shield size={14} /> Enable 2FA
                 </button>
               </div>
 
               <div className="p-6 rounded-2xl" style={CARD}>
-                <h3 className="mb-4" style={{ fontSize: "15px", fontWeight: 600, color: "#fff" }}>Active Sessions</h3>
+                <h3 className="mb-4" style={{ fontSize: "15px", fontWeight: 400, color: "#fff" }}>Active Sessions</h3>
                 {[
                   { device: "MacBook Pro 16\"", location: "New York, US", time: "Now", current: true },
                   { device: "iPhone 15 Pro", location: "New York, US", time: "2 hours ago", current: false },
@@ -339,11 +339,11 @@ export function Settings() {
         {activeSection === "team" && (
           <div>
             <div className="flex items-center justify-between mb-6">
-              <h2 style={{ fontSize: "20px", fontWeight: 700, color: "#fff" }}>Team Management</h2>
+              <h2 style={{ fontSize: "20px", fontWeight: 300, color: "#fff" }}>Team Management</h2>
               <button
                 onClick={() => toast.success("Invite sent!")}
                 className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm"
-                style={{ background: "#C4FF40", color: "#000", fontWeight: 600 }}
+                style={{ background: "#C4FF40", color: "#000", fontWeight: 400 }}
               >
                 <Mail size={14} /> Invite Member
               </button>
@@ -358,7 +358,7 @@ export function Settings() {
                   >
                     <div
                       className="flex items-center justify-center rounded-full text-xs flex-shrink-0 overflow-hidden"
-                      style={{ width: "36px", height: "36px", background: "linear-gradient(135deg, #C4FF40, #7B5CF5)", color: "#000", fontWeight: 700 }}
+                      style={{ width: "36px", height: "36px", background: "linear-gradient(135deg, #C4FF40, #7B5CF5)", color: "#000", fontWeight: 300 }}
                     >
                       {member.avatar.startsWith("http") ? (
                         <img src={member.avatar} alt={member.name} className="w-full h-full object-cover" />
@@ -367,7 +367,7 @@ export function Settings() {
                       )}
                     </div>
                     <div className="flex-1">
-                      <p className="text-sm" style={{ color: "#fff", fontWeight: 500 }}>{member.name}</p>
+                      <p className="text-sm" style={{ color: "#fff", fontWeight: 300 }}>{member.name}</p>
                       <p className="text-xs" style={{ color: "#6B7280" }}>{member.email}</p>
                     </div>
                     <span
@@ -391,20 +391,20 @@ export function Settings() {
 
         {activeSection === "billing" && (
           <div>
-            <h2 className="mb-6" style={{ fontSize: "20px", fontWeight: 700, color: "#fff" }}>Billing & Plan</h2>
+            <h2 className="mb-6" style={{ fontSize: "20px", fontWeight: 300, color: "#fff" }}>Billing & Plan</h2>
             <div
               className="p-6 rounded-2xl mb-4"
               style={{ background: "linear-gradient(135deg, rgba(196,255,64,0.06), rgba(123,92,245,0.06))", border: "1px solid rgba(196,255,64,0.2)" }}
             >
               <div className="flex items-start justify-between">
                 <div>
-                  <p className="text-xs mb-1" style={{ color: "#C4FF40", fontWeight: 600 }}>CURRENT PLAN</p>
-                  <h3 style={{ fontSize: "24px", fontWeight: 800, color: "#fff" }}>Pro Plan</h3>
+                  <p className="text-xs mb-1" style={{ color: "#C4FF40", fontWeight: 400 }}>CURRENT PLAN</p>
+                  <h3 style={{ fontSize: "24px", fontWeight: 400, color: "#fff" }}>Pro Plan</h3>
                   <p className="text-sm mt-1" style={{ color: "#8892A4" }}>$149/month · Renews March 20, 2026</p>
                 </div>
                 <button
                   className="px-4 py-2 rounded-xl text-sm"
-                  style={{ background: "#C4FF40", color: "#000", fontWeight: 700 }}
+                  style={{ background: "#C4FF40", color: "#000", fontWeight: 300 }}
                 >
                   Upgrade to Enterprise
                 </button>
@@ -418,7 +418,7 @@ export function Settings() {
                   <div key={u.label}>
                     <p className="text-xs mb-1" style={{ color: "#6B7280" }}>{u.label}</p>
                     <p className="text-sm" style={{ color: "#fff" }}>
-                      <span style={{ fontWeight: 700 }}>{u.used}</span>
+                      <span style={{ fontWeight: 300 }}>{u.used}</span>
                       <span style={{ color: "#4A5568" }}> / {u.limit}</span>
                     </p>
                   </div>
@@ -426,7 +426,7 @@ export function Settings() {
               </div>
             </div>
             <div className="p-6 rounded-2xl" style={CARD}>
-              <h3 className="mb-4" style={{ fontSize: "15px", fontWeight: 600, color: "#fff" }}>Payment History</h3>
+              <h3 className="mb-4" style={{ fontSize: "15px", fontWeight: 400, color: "#fff" }}>Payment History</h3>
               {[
                 { date: "Mar 1, 2026", amount: "$149.00", status: "Paid" },
                 { date: "Feb 1, 2026", amount: "$149.00", status: "Paid" },
@@ -434,7 +434,7 @@ export function Settings() {
               ].map((inv) => (
                 <div key={inv.date} className="flex items-center justify-between py-3" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
                   <p className="text-sm" style={{ color: "#8892A4" }}>{inv.date}</p>
-                  <p className="text-sm" style={{ color: "#fff", fontWeight: 600 }}>{inv.amount}</p>
+                  <p className="text-sm" style={{ color: "#fff", fontWeight: 400 }}>{inv.amount}</p>
                   <span className="text-xs px-2.5 py-1 rounded-full" style={{ background: "rgba(196,255,64,0.08)", color: "#C4FF40" }}>
                     {inv.status}
                   </span>
@@ -450,7 +450,7 @@ export function Settings() {
         {!["profile", "notifications", "security", "team", "billing"].includes(activeSection) && (
           <div className="flex flex-col items-center justify-center h-64 text-center">
             <div className="text-4xl mb-4">⚙️</div>
-            <h3 style={{ color: "#fff", fontWeight: 600 }}>Coming Soon</h3>
+            <h3 style={{ color: "#fff", fontWeight: 400 }}>Coming Soon</h3>
             <p className="mt-2 text-sm" style={{ color: "#6B7280" }}>This settings section is under construction.</p>
           </div>
         )}

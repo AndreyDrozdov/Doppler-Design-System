@@ -47,7 +47,7 @@ export function Signup() {
           >
             <Activity size={18} color="#000" />
           </div>
-          <span style={{ fontWeight: 700, fontSize: "16px", color: "#fff" }}>DataWhisper</span>
+          <span style={{ fontWeight: 300, fontSize: "16px", color: "#fff" }}>DataWhisper</span>
         </div>
 
         {/* Progress */}
@@ -61,7 +61,7 @@ export function Signup() {
                   height: "28px",
                   background: i <= step ? "#C4FF40" : "rgba(255,255,255,0.08)",
                   color: i <= step ? "#000" : "#6B7280",
-                  fontWeight: 700,
+                  fontWeight: 300,
                 }}
               >
                 {i < step ? <CheckCircle2 size={14} /> : i + 1}
@@ -84,7 +84,7 @@ export function Signup() {
         >
           {step === 0 && (
             <>
-              <h2 className="mb-1" style={{ fontSize: "22px", fontWeight: 800, color: "#fff" }}>
+              <h2 className="mb-1" style={{ fontSize: "22px", fontWeight: 400, color: "#fff" }}>
                 Create your account
               </h2>
               <p className="mb-6 text-sm" style={{ color: "#6B7280" }}>Start your 14-day free trial. No credit card required.</p>
@@ -119,7 +119,7 @@ export function Signup() {
 
           {step === 1 && (
             <>
-              <h2 className="mb-1" style={{ fontSize: "22px", fontWeight: 800, color: "#fff" }}>
+              <h2 className="mb-1" style={{ fontSize: "22px", fontWeight: 400, color: "#fff" }}>
                 About your company
               </h2>
               <p className="mb-6 text-sm" style={{ color: "#6B7280" }}>Help us personalize your experience.</p>
@@ -171,7 +171,7 @@ export function Signup() {
 
           {step === 2 && (
             <>
-              <h2 className="mb-1" style={{ fontSize: "22px", fontWeight: 800, color: "#fff" }}>
+              <h2 className="mb-1" style={{ fontSize: "22px", fontWeight: 400, color: "#fff" }}>
                 Choose your plan
               </h2>
               <p className="mb-6 text-sm" style={{ color: "#6B7280" }}>Start free, upgrade anytime.</p>
@@ -192,9 +192,9 @@ export function Signup() {
                   >
                     <div>
                       <div className="flex items-center gap-2">
-                        <p className="text-sm" style={{ color: "#fff", fontWeight: 600 }}>{plan.name}</p>
+                        <p className="text-sm" style={{ color: "#fff", fontWeight: 400 }}>{plan.name}</p>
                         {plan.recommended && (
-                          <span className="text-xs px-2 py-0.5 rounded-full" style={{ background: "#C4FF40", color: "#000", fontWeight: 700 }}>
+                          <span className="text-xs px-2 py-0.5 rounded-full" style={{ background: "#C4FF40", color: "#000", fontWeight: 300 }}>
                             Recommended
                           </span>
                         )}
@@ -202,7 +202,7 @@ export function Signup() {
                       <p className="text-xs" style={{ color: "#6B7280" }}>{plan.desc}</p>
                     </div>
                     <div className="flex items-center gap-2">
-                      <span style={{ color: "#fff", fontWeight: 700 }}>{plan.price}</span>
+                      <span style={{ color: "#fff", fontWeight: 300 }}>{plan.price}</span>
                       <div
                         className="w-5 h-5 rounded-full flex items-center justify-center"
                         style={{ background: form.plan === plan.id ? "#C4FF40" : "rgba(255,255,255,0.1)" }}
@@ -220,7 +220,7 @@ export function Signup() {
             onClick={handleNext}
             disabled={loading}
             className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm mt-6 transition-all"
-            style={{ background: loading ? "rgba(196,255,64,0.5)" : "#C4FF40", color: "#000", fontWeight: 700 }}
+            style={{ background: loading ? "rgba(196,255,64,0.5)" : "#C4FF40", color: "#000", fontWeight: 300 }}
           >
             {loading ? (
               <div className="w-4 h-4 rounded-full border-2 border-black/30 border-t-black animate-spin" />
@@ -234,7 +234,7 @@ export function Signup() {
 
         <p className="text-center text-sm mt-4" style={{ color: "#6B7280" }}>
           Already have an account?{" "}
-          <Link to="/login" style={{ color: "#C4FF40", fontWeight: 600 }}>Sign in</Link>
+          <Link to="/login" style={{ color: "#C4FF40", fontWeight: 400 }}>Sign in</Link>
         </p>
       </div>
     </div>

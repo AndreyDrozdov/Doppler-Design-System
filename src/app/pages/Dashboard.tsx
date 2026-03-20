@@ -145,7 +145,7 @@ const kpis = [
 const CARD = {
   background: "#0D0F1A",
   border: "1px solid rgba(255,255,255,0.06)",
-  borderRadius: "16px",
+  borderRadius: "0",
 };
 
 export function Dashboard() {
@@ -160,7 +160,7 @@ export function Dashboard() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 style={{ fontSize: "24px", fontWeight: 700, color: "#fff", marginBottom: "4px" }}>
+          <h1 style={{ fontSize: "24px", fontWeight: 300, color: "#fff", marginBottom: "4px" }}>
             Dashboard
           </h1>
           <p style={{ color: "#6B7280", fontSize: "14px" }}>
@@ -214,7 +214,7 @@ export function Dashboard() {
         />
         <button
           className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm transition-all"
-          style={{ background: "#C4FF40", color: "#000", fontWeight: 600 }}
+          style={{ background: "#C4FF40", color: "#000", fontWeight: 400 }}
         >
           <Send size={14} /> Ask
         </button>
@@ -233,7 +233,7 @@ export function Dashboard() {
                 <kpi.icon size={16} style={{ color: kpi.color }} />
               </div>
             </div>
-            <p style={{ fontSize: "26px", fontWeight: 800, color: "#fff", lineHeight: 1 }}>
+            <p style={{ fontSize: "26px", fontWeight: 400, color: "#fff", lineHeight: 1 }}>
               {kpi.value}
             </p>
             <div className="flex items-center gap-1.5 mt-2">
@@ -260,7 +260,7 @@ export function Dashboard() {
         <div className="lg:col-span-2 p-5 rounded-2xl" style={CARD}>
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h3 style={{ fontSize: "15px", fontWeight: 600, color: "#fff" }}>Revenue vs Target</h3>
+              <h3 style={{ fontSize: "15px", fontWeight: 400, color: "#fff" }}>Revenue vs Target</h3>
               <p className="text-xs mt-0.5" style={{ color: "#6B7280" }}>Monthly comparison</p>
             </div>
             <button style={{ color: "#6B7280" }}>
@@ -283,7 +283,7 @@ export function Dashboard() {
               <XAxis dataKey="month" tick={{ fill: "#4A5568", fontSize: 11 }} axisLine={false} tickLine={false} />
               <YAxis tick={{ fill: "#4A5568", fontSize: 11 }} axisLine={false} tickLine={false} />
               <Tooltip
-                contentStyle={{ background: "#1A1D2E", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "8px", color: "#fff", fontSize: "12px" }}
+                contentStyle={{ background: "#1A1D2E", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "0", color: "#fff", fontSize: "12px" }}
               />
               <Area type="monotone" dataKey="revenue" stroke="#C4FF40" strokeWidth={2} fill="url(#revGrad)" dot={false} name="Revenue ($K)" />
               <Area type="monotone" dataKey="target" stroke="#7B5CF5" strokeWidth={2} strokeDasharray="4 4" fill="url(#targetGrad)" dot={false} name="Target ($K)" />
@@ -295,7 +295,7 @@ export function Dashboard() {
         <div className="p-5 rounded-2xl" style={CARD}>
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h3 style={{ fontSize: "15px", fontWeight: 600, color: "#fff" }}>Traffic Sources</h3>
+              <h3 style={{ fontSize: "15px", fontWeight: 400, color: "#fff" }}>Traffic Sources</h3>
               <p className="text-xs mt-0.5" style={{ color: "#6B7280" }}>By channel</p>
             </div>
           </div>
@@ -323,7 +323,7 @@ export function Dashboard() {
                   <div className="w-2 h-2 rounded-full" style={{ background: ch.color }} />
                   <span className="text-xs" style={{ color: "#8892A4" }}>{ch.name}</span>
                 </div>
-                <span className="text-xs" style={{ color: "#fff", fontWeight: 600 }}>{ch.value}%</span>
+                <span className="text-xs" style={{ color: "#fff", fontWeight: 400 }}>{ch.value}%</span>
               </div>
             ))}
           </div>
@@ -335,7 +335,7 @@ export function Dashboard() {
         {/* Top products */}
         <div className="lg:col-span-2 p-5 rounded-2xl" style={CARD}>
           <div className="flex items-center justify-between mb-4">
-            <h3 style={{ fontSize: "15px", fontWeight: 600, color: "#fff" }}>Top Products</h3>
+            <h3 style={{ fontSize: "15px", fontWeight: 400, color: "#fff" }}>Top Products</h3>
             <button className="text-xs" style={{ color: "#C4FF40" }}>View all</button>
           </div>
           <div className="space-y-1">
@@ -355,7 +355,7 @@ export function Dashboard() {
                   <span className="text-xs w-4" style={{ color: "#4A5568" }}>{i + 1}</span>
                   <span className="text-sm" style={{ color: "#fff" }}>{p.name}</span>
                 </div>
-                <span className="text-sm text-right" style={{ color: "#fff", fontWeight: 600 }}>{p.revenue}</span>
+                <span className="text-sm text-right" style={{ color: "#fff", fontWeight: 400 }}>{p.revenue}</span>
                 <div className="flex items-center justify-end gap-1">
                   {p.growth > 0 ? (
                     <TrendingUp size={12} style={{ color: "#C4FF40" }} />
@@ -364,7 +364,7 @@ export function Dashboard() {
                   )}
                   <span
                     className="text-sm"
-                    style={{ color: p.growth > 0 ? "#C4FF40" : "#EF4444", fontWeight: 600 }}
+                    style={{ color: p.growth > 0 ? "#C4FF40" : "#EF4444", fontWeight: 400 }}
                   >
                     {p.growth > 0 ? "+" : ""}{p.growth}%
                   </span>
@@ -379,7 +379,7 @@ export function Dashboard() {
         <div className="p-5 rounded-2xl" style={CARD}>
           <div className="flex items-center gap-2 mb-4">
             <Brain size={16} style={{ color: "#7B5CF5" }} />
-            <h3 style={{ fontSize: "15px", fontWeight: 600, color: "#fff" }}>AI Insights</h3>
+            <h3 style={{ fontSize: "15px", fontWeight: 400, color: "#fff" }}>AI Insights</h3>
             <span
               className="ml-auto text-xs px-2 py-0.5 rounded-full"
               style={{ background: "rgba(123,92,245,0.15)", color: "#7B5CF5" }}
@@ -399,7 +399,7 @@ export function Dashboard() {
               >
                 <div className="flex items-start gap-2 mb-1.5">
                   <insight.icon size={14} className="mt-0.5" style={{ color: insight.color }} />
-                  <p className="text-xs" style={{ color: "#fff", fontWeight: 600 }}>{insight.title}</p>
+                  <p className="text-xs" style={{ color: "#fff", fontWeight: 400 }}>{insight.title}</p>
                 </div>
                 <p className="text-xs leading-relaxed mb-2" style={{ color: "#6B7280" }}>
                   {insight.desc}
@@ -424,7 +424,7 @@ export function Dashboard() {
       <div className="mt-4 p-5 rounded-2xl" style={CARD}>
         <div className="flex items-center justify-between mb-4">
           <div>
-            <h3 style={{ fontSize: "15px", fontWeight: 600, color: "#fff" }}>Weekly Sessions & Conversions</h3>
+            <h3 style={{ fontSize: "15px", fontWeight: 400, color: "#fff" }}>Weekly Sessions & Conversions</h3>
             <p className="text-xs mt-0.5" style={{ color: "#6B7280" }}>Last 7 days</p>
           </div>
           <div className="flex items-center gap-4 text-xs">
@@ -444,7 +444,7 @@ export function Dashboard() {
             <XAxis dataKey="day" tick={{ fill: "#4A5568", fontSize: 11 }} axisLine={false} tickLine={false} />
             <YAxis tick={{ fill: "#4A5568", fontSize: 11 }} axisLine={false} tickLine={false} />
             <Tooltip
-              contentStyle={{ background: "#1A1D2E", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "8px", color: "#fff", fontSize: "12px" }}
+              contentStyle={{ background: "#1A1D2E", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "0", color: "#fff", fontSize: "12px" }}
             />
             <Bar dataKey="sessions" fill="#7B5CF5" radius={[4, 4, 0, 0]} maxBarSize={40} name="Sessions" />
             <Bar dataKey="conversions" fill="#C4FF40" radius={[4, 4, 0, 0]} maxBarSize={40} name="Conversions" />

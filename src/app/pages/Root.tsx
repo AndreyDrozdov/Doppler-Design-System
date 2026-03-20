@@ -70,7 +70,7 @@ export function Root() {
           {!collapsed && (
             <span
               className="overflow-hidden whitespace-nowrap"
-              style={{ color: "#fff", fontSize: "16px", fontWeight: 700 }}
+              style={{ color: "#fff", fontSize: "16px", fontWeight: 300 }}
             >
               DataWhisper
             </span>
@@ -137,7 +137,7 @@ export function Root() {
             <div className="mt-6 mb-2">
               <p
                 className="text-xs px-3 mb-2"
-                style={{ color: "#4A5568", fontWeight: 500 }}
+                style={{ color: "#4A5568", fontWeight: 300 }}
               >
                 AI TOOLS
               </p>
@@ -153,7 +153,7 @@ export function Root() {
             >
               <div className="flex items-center gap-2 mb-1">
                 <Sparkles size={14} style={{ color: "#C4FF40" }} />
-                <span className="text-xs" style={{ color: "#C4FF40", fontWeight: 600 }}>
+                <span className="text-xs" style={{ color: "#C4FF40", fontWeight: 400 }}>
                   Ask DataWhisper
                 </span>
               </div>
@@ -220,7 +220,7 @@ export function Root() {
                   height: "28px",
                   background: "linear-gradient(135deg, #C4FF40, #7B5CF5)",
                   color: "#000",
-                  fontWeight: 700,
+                  fontWeight: 300,
                 }}
               >
                 <img src="https://i.pravatar.cc/150?u=alex" alt="Alex Johnson" className="w-full h-full object-cover" />
@@ -328,7 +328,7 @@ export function Root() {
               style={{
                 background: "linear-gradient(135deg, #C4FF40 0%, #A0E020 100%)",
                 color: "#000",
-                fontWeight: 600,
+                fontWeight: 400,
               }}
             >
               <Zap size={14} />
