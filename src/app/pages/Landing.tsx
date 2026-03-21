@@ -1,6 +1,6 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { Link } from "react-router";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useSpring, useAnimationFrame } from "framer-motion";
 import {
   Sparkles,
   BarChart3,
@@ -799,13 +799,21 @@ function TestimonialCard({ testimonial: t, gradient }: { testimonial: typeof tes
   const initial = t.name.charAt(0);
   return (
     <div
-      className="p-8 rounded-2xl flex flex-col h-full transition-all duration-300 hover:border-white/20"
+      className="relative p-8 rounded-2xl flex flex-col h-full transition-all duration-300 hover:border-white/20 hover:bg-white/[0.04]"
       style={{ 
         background: "rgba(255,255,255,0.02)", 
         border: "1px solid rgba(255,255,255,0.06)",
         backdropFilter: "blur(10px)"
       }}
     >
+      <div 
+        className="absolute top-0 left-8 right-8 h-[1px]" 
+        style={{ 
+          background: gradient,
+          maskImage: "linear-gradient(to right, transparent, black, transparent)",
+          WebkitMaskImage: "linear-gradient(to right, transparent, black, transparent)"
+        }} 
+      />
       <div className="flex gap-1 mb-6">
         {[...Array(5)].map((_, i) => (
           <Star key={i} size={14} fill="#FBBF24" style={{ color: "#FBBF24" }} />
@@ -829,6 +837,8 @@ function TestimonialCard({ testimonial: t, gradient }: { testimonial: typeof tes
     </div>
   );
 }
+
+
 
 function TestimonialCarousel() {
   const [index, setIndex] = useState(0);
@@ -868,51 +878,53 @@ function TestimonialCarousel() {
   }, [index, cardCount]);
 
   return (
-    <div className="relative w-full overflow-hidden py-16">
-      <motion.div
-        className="flex items-center"
-        style={{ gap: `${GAP}px` }}
-        initial={false}
-        animate={{ x: `calc(-${index} * ((100% - ${GAP * 2}px) / 3 + ${GAP}px))` }}
-        transition={{ 
-          type: "spring", 
-          stiffness: 100, 
-          damping: 20,
-          duration: index === 0 && isAnimating ? 0 : 0.7
-        }}
-        onAnimationStart={() => setIsAnimating(true)}
-        onAnimationComplete={() => {
-          setIsAnimating(false);
-          handleSnap();
-        }}
-      >
-        {extendedTestimonials.map((t, i) => {
-          // In index 0, center is 1. In index 6 (clone), center should also be 1.
-          // But visually index 6 looks like index 0.
-          // So the center logic must be relative to the display.
-          const effectiveIndex = index % cardCount;
-          const isCenter = i === index + 1;
-          
-          const isLeft = i < index + 1;
-          const gradient = gradients[i % gradients.length];
-          return (
-            <motion.div 
-              key={`${i}-${t.name}`} 
-              className="flex-shrink-0"
-              style={{ width: `calc((100% - ${GAP * 2}px) / 3)`, perspective: "1200px" }}
-              animate={{ 
-                scale: isCenter ? 1.05 : 0.9,
-                opacity: isCenter ? 1 : 0.8,
-                rotateY: isCenter ? 0 : isLeft ? 15 : -15,
-                z: isCenter ? 0 : -100
-              }}
-              transition={{ duration: 0.6, type: "spring", stiffness: 80, damping: 15 }}
-            >
-              <TestimonialCard testimonial={t} gradient={gradient} />
-            </motion.div>
-          );
-        })}
-      </motion.div>
+    <div className="relative w-full py-16">
+      <div className="w-full overflow-hidden relative z-10 py-12 -my-12">
+        <motion.div
+          className="flex items-center"
+          style={{ gap: `${GAP}px` }}
+          initial={false}
+          animate={{ x: `calc(-${index} * ((100% - ${GAP * 2}px) / 3 + ${GAP}px))` }}
+          transition={{ 
+            type: "spring", 
+            stiffness: 100, 
+            damping: 20,
+            duration: index === 0 && isAnimating ? 0 : 0.7
+          }}
+          onAnimationStart={() => setIsAnimating(true)}
+          onAnimationComplete={() => {
+            setIsAnimating(false);
+            handleSnap();
+          }}
+        >
+          {extendedTestimonials.map((t, i) => {
+            // In index 0, center is 1. In index 6 (clone), center should also be 1.
+            // But visually index 6 looks like index 0.
+            // So the center logic must be relative to the display.
+            const effectiveIndex = index % cardCount;
+            const isCenter = i === index + 1;
+            
+            const isLeft = i < index + 1;
+            const gradient = gradients[i % gradients.length];
+            return (
+              <motion.div 
+                key={`${i}-${t.name}`} 
+                className="flex-shrink-0"
+                style={{ width: `calc((100% - ${GAP * 2}px) / 3)`, perspective: "1200px" }}
+                animate={{ 
+                  scale: isCenter ? 1.05 : 0.9,
+                  opacity: isCenter ? 1 : 0.8,
+                  rotateY: isCenter ? 0 : isLeft ? 15 : -15,
+                  z: isCenter ? 0 : -100
+                }}
+                transition={{ duration: 0.6, type: "spring", stiffness: 80, damping: 15 }}
+              >
+                <TestimonialCard testimonial={t} gradient={gradient} />
+              </motion.div>
+            );
+          })}
+        </motion.div>
+      </div>
 
       {/* Sleek Paginator */}
       <div className="flex justify-center gap-2 mt-12">
@@ -1141,8 +1153,9 @@ export function Landing() {
       <AiQueryDemo />
 
       {/* Testimonials */}
-      <section className="py-20 px-8">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-20 px-8 relative overflow-hidden">
+        
+        <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-12">
             <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 400, letterSpacing: "-1px" }}>
               Loved by data-driven teams

@@ -67,6 +67,7 @@ export const MazeBackground: React.FC = () => {
       }
       ctx.stroke();
     });
+
   }, [grid]);
 
   return (
