@@ -184,11 +184,12 @@ export function Login() {
             <button
               type="submit"
               disabled={loading}
-              className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm transition-all"
+              className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm transition-all hover:opacity-90 active:scale-[0.98]"
               style={{
-                background: loading ? "rgba(196,255,64,0.5)" : "#C4FF40",
+                background: loading ? "rgba(16,185,129,0.5)" : "linear-gradient(135deg, #C4FF40 0%, #10B981 100%)",
                 color: "#000",
                 fontWeight: 400,
+                border: "none",
               }}
             >
               {loading ? (

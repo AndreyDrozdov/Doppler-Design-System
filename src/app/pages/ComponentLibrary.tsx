@@ -293,22 +293,25 @@ export function ComponentLibrary() {
           <div>
             <div style={CARD}>
               <SectionTitle label="Button Variants" />
-              <Label>Primary</Label>
-              <div className="flex flex-wrap gap-3 mb-6">
+              <Label>Primary (Gradient)</Label>
+              <div className="flex flex-wrap gap-4 mb-8">
                 {["sm", "md", "lg"].map((size) => (
                   <button
                     key={size}
                     onClick={() => toast.success(`Primary ${size} clicked`)}
-                    className="rounded-xl transition-all hover:opacity-90"
+                    className="rounded-xl transition-all hover:opacity-90 active:scale-[0.98]"
                     style={{
-                      background: "#C4FF40",
+                      background: "linear-gradient(135deg, #C4FF40 0%, #10B981 100%)",
                       color: "#000",
                       fontWeight: 400,
-                      padding: size === "sm" ? "6px 14px" : size === "lg" ? "14px 28px" : "10px 20px",
+                      padding: size === "sm" ? "10px 20px" : size === "lg" ? "16px 36px" : "12px 28px",
                       fontSize: size === "sm" ? "12px" : size === "lg" ? "15px" : "13px",
+                      border: "none",
                     }}
                   >
-                    {size.toUpperCase()} Button
+                    <div className="flex items-center justify-center gap-2">
+                      {size.toUpperCase()} Button
+                    </div>
                   </button>
                 ))}
               </div>

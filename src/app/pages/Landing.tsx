@@ -18,6 +18,7 @@ import {
   Play,
   Orbit,
 } from "lucide-react";
+import { MazeBackground } from "../components/MazeBackground";
 import {
   AreaChart,
   Area,
@@ -40,7 +41,7 @@ const dashboardMetrics = [
     primaryKey: "revenue",
     secondaryKey: "cost",
     primaryColor: "#C4FF40",
-    secondaryColor: "#6B7280",
+    secondaryColor: "#10B981",
     data: [
       { month: "Jan", revenue: 1.2, cost: 0.8 },
       { month: "Feb", revenue: 2.1, cost: 1.1 },
@@ -60,7 +61,7 @@ const dashboardMetrics = [
     primaryKey: "users",
     secondaryKey: "newUsers",
     primaryColor: "#38BDF8",
-    secondaryColor: "#6B7280",
+    secondaryColor: "#3B82F6",
     data: [
       { month: "Jan", users: 8200, newUsers: 1400 },
       { month: "Feb", users: 12500, newUsers: 600 },
@@ -80,7 +81,7 @@ const dashboardMetrics = [
     primaryKey: "conversion",
     secondaryKey: "benchmark",
     primaryColor: "#7B5CF5",
-    secondaryColor: "#6B7280",
+    secondaryColor: "#3B82F6",
     data: [
       { month: "Jan", conversion: 3.2, benchmark: 3.5 },
       { month: "Feb", conversion: 5.4, benchmark: 3.2 },
@@ -99,8 +100,8 @@ const dashboardMetrics = [
     chartTitle: "Deal Size Trend",
     primaryKey: "dealSize",
     secondaryKey: "target",
-    primaryColor: "#FB923C",
-    secondaryColor: "#6B7280",
+    primaryColor: "#F59E0B",
+    secondaryColor: "#EF4444",
     data: [
       { month: "Jan", dealSize: 5.8, target: 6.0 },
       { month: "Feb", dealSize: 3.2, target: 6.5 },
@@ -234,7 +235,7 @@ function DashboardDemo() {
                     className="absolute bottom-0 left-0 h-[2px]"
                     style={{
                       width: `${progress * 100}%`,
-                      background: m.primaryColor,
+                      background: `linear-gradient(90deg, ${m.primaryColor}, ${m.secondaryColor})`,
                     }}
                   />
                 )}
@@ -246,8 +247,8 @@ function DashboardDemo() {
                   <span
                     className="hidden sm:inline-block text-[10px] md:text-xs px-1.5 py-0.5 rounded-full font-medium"
                     style={{
-                      background: m.primaryColor + "20",
-                      color: m.primaryColor,
+                      background: isActive ? m.primaryColor + "20" : "rgba(255,255,255,0.06)",
+                      color: isActive ? m.primaryColor : "#6B7280",
                     }}
                   >
                     {m.change}
@@ -301,11 +302,11 @@ function DashboardDemo() {
                   <defs>
                     <linearGradient id={`grad1-${activeMetric}`} x1="0" y1="0" x2="0" y2="1">
                       <stop offset="5%" stopColor={metric.primaryColor} stopOpacity={0.3} />
-                      <stop offset="95%" stopColor={metric.primaryColor} stopOpacity={0} />
-                    </linearGradient>
-                    <linearGradient id={`grad2-${activeMetric}`} x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor={metric.secondaryColor} stopOpacity={0.2} />
                       <stop offset="95%" stopColor={metric.secondaryColor} stopOpacity={0} />
+                    </linearGradient>
+                    <linearGradient id={`strokeGrad-${activeMetric}`} x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0%" stopColor={metric.primaryColor} />
+                      <stop offset="100%" stopColor={metric.secondaryColor} />
                     </linearGradient>
                   </defs>
                   <CartesianGrid stroke="rgba(255,255,255,0.04)" vertical={false} />
@@ -314,20 +315,20 @@ function DashboardDemo() {
                   <Area
                     type="natural"
                     dataKey={metric.primaryKey}
-                    stroke={metric.primaryColor}
-                    strokeWidth={2}
+                    stroke={`url(#strokeGrad-${activeMetric})`}
+                    strokeWidth={3}
                     fill={`url(#grad1-${activeMetric})`}
                     isAnimationActive={true}
-                    animationDuration={800}
+                    animationDuration={1200}
                     animationEasing="ease-out"
                   />
                   <Area
                     type="natural"
                     dataKey={metric.secondaryKey}
-                    stroke={metric.secondaryColor}
+                    stroke="rgba(255,255,255,0.15)"
                     strokeWidth={1.5}
                     strokeDasharray="4 4"
-                    fill={`url(#grad2-${activeMetric})`}
+                    fill="transparent"
                     isAnimationActive={true}
                     animationDuration={800}
                     animationEasing="ease-out"
@@ -404,27 +405,51 @@ const features = [
 
 const testimonials = [
   {
-    name: "Sarah Chen",
+    name: "Sam Chen",
     role: "VP of Marketing, TechFlow",
     quote:
       "Doppler cut our reporting time by 80%. Now I get insights in seconds instead of waiting days for the data team.",
-    avatar: "https://i.pravatar.cc/150?u=sarah",
+    avatar: "https://i.pravatar.cc/150?u=sam",
     rating: 5,
   },
   {
-    name: "Marcus Williams",
+    name: "Max Williams",
     role: "CEO, GrowthLabs",
     quote:
       "The AI insights are uncannily accurate. It surfaced a revenue opportunity we completely missed—added $2M to our pipeline.",
-    avatar: "https://i.pravatar.cc/150?u=marcus",
+    avatar: "https://i.pravatar.cc/150?u=executive",
     rating: 5,
   },
   {
-    name: "Priya Sharma",
+    name: "Rahul Sharma",
     role: "Sales Director, Apex Corp",
     quote:
       "Our sales team finally has real-time visibility. Doppler is the first BI tool they actually use every day.",
-    avatar: "https://i.pravatar.cc/150?u=priya",
+    avatar: "https://i.pravatar.cc/150?u=rahul",
+    rating: 5,
+  },
+  {
+    name: "Thomas Mueller",
+    role: "Head of Operations, LogiCore",
+    quote:
+      "Identifying supply chain bottlenecks used to be a week-long manual process. Now Doppler does it in real-time.",
+    avatar: "https://i.pravatar.cc/150?u=thomas",
+    rating: 5,
+  },
+  {
+    name: "Emilio Rodriguez",
+    role: "Chief Data Officer, Veloce",
+    quote:
+      "Finally, a tool that bridges the gap between raw data and executive decision-making without the overhead.",
+    avatar: "https://i.pravatar.cc/150?u=emilio",
+    rating: 5,
+  },
+  {
+    name: "David Kim",
+    role: "Growth Lead, Horizon AI",
+    quote:
+      "The natural language interface is a game-changer. My non-technical managers are now completely self-serve.",
+    avatar: "https://i.pravatar.cc/150?u=david",
     rating: 5,
   },
 ];
@@ -660,7 +685,7 @@ function AiQueryDemo() {
                 className="absolute inset-y-0 left-0"
                 style={{
                   width: `${progress * 100}%`,
-                  background: "linear-gradient(90deg, #C4FF40, #7B5CF5)",
+                  background: "linear-gradient(90deg, #C4FF40, #10B981)",
                 }}
               />
             </div>
@@ -696,7 +721,7 @@ function AiQueryDemo() {
                   {/* Query bubble */}
                   <div
                     className="rounded-lg p-3 mb-3"
-                    style={{ background: "rgba(123,92,245,0.08)", border: "1px solid rgba(123,92,245,0.15)" }}
+                    style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}
                   >
                     <p className="text-sm" style={{ color: "#C4FF40" }}>
                       <TypeWriter text={activeQuery.question} onComplete={handleTypingComplete} />
@@ -783,7 +808,153 @@ function AiQueryDemo() {
   );
 }
 
-import { MazeBackground } from "../components/MazeBackground";
+function TestimonialCard({ testimonial: t, gradient }: { testimonial: typeof testimonials[0], gradient: string }) {
+  const initial = t.name.charAt(0);
+  return (
+    <div
+      className="p-8 rounded-2xl flex flex-col h-full transition-all duration-300 hover:border-white/20"
+      style={{ 
+        background: "rgba(255,255,255,0.02)", 
+        border: "1px solid rgba(255,255,255,0.06)",
+        backdropFilter: "blur(10px)"
+      }}
+    >
+      <div className="flex gap-1 mb-6">
+        {[...Array(5)].map((_, i) => (
+          <Star key={i} size={14} fill="#FBBF24" style={{ color: "#FBBF24" }} />
+        ))}
+      </div>
+      <p className="text-base mb-8 leading-relaxed italic" style={{ color: "#8892A4" }}>
+        "{t.quote}"
+      </p>
+      <div className="flex items-center gap-4 mt-auto">
+        <div
+          className="flex items-center justify-center rounded-full text-sm font-bold overflow-hidden ring-1 ring-white/10"
+          style={{ width: "40px", height: "40px", background: gradient, color: "#fff", textShadow: "0 1px 2px rgba(0,0,0,0.2)" }}
+        >
+          {initial}
+        </div>
+        <div>
+          <p className="text-sm font-medium" style={{ color: "#fff" }}>{t.name}</p>
+          <p className="text-xs" style={{ color: "#6B7280" }}>{t.role}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function TestimonialCarousel() {
+  const [index, setIndex] = useState(0);
+  const cardCount = testimonials.length;
+  const [isAnimating, setIsAnimating] = useState(false);
+  const GAP = 24;
+
+  const gradients = [
+    "linear-gradient(135deg, #C4FF40, #10B981)", // Lime
+    "linear-gradient(135deg, #38BDF8, #3B82F6)", // Sky
+    "linear-gradient(135deg, #7B5CF5, #3B82F6)", // Purple
+    "linear-gradient(135deg, #F59E0B, #EF4444)", // Amber
+  ];
+
+  // Clone 3 items for infinite loop
+  const extendedTestimonials = [...testimonials, ...testimonials.slice(0, 3)];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      handleNext();
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [index, cardCount, isAnimating]);
+
+  const handleNext = useCallback(() => {
+    if (isAnimating) return;
+    setIndex((prev) => (prev >= cardCount ? 1 : prev + 1));
+  }, [isAnimating, cardCount]);
+
+  const handleSnap = useCallback(() => {
+    if (index >= cardCount) {
+      setIsAnimating(true);
+      setIndex(0);
+      // Brief timeout to let the snap happen without animation
+      setTimeout(() => setIsAnimating(false), 50);
+    }
+  }, [index, cardCount]);
+
+  return (
+    <div className="relative w-full overflow-hidden py-16">
+      <motion.div
+        className="flex items-center"
+        style={{ gap: `${GAP}px` }}
+        initial={false}
+        animate={{ x: `calc(-${index} * ((100% - ${GAP * 2}px) / 3 + ${GAP}px))` }}
+        transition={{ 
+          type: "spring", 
+          stiffness: 100, 
+          damping: 20,
+          duration: index === 0 && isAnimating ? 0 : 0.7
+        }}
+        onAnimationStart={() => setIsAnimating(true)}
+        onAnimationComplete={() => {
+          setIsAnimating(false);
+          handleSnap();
+        }}
+      >
+        {extendedTestimonials.map((t, i) => {
+          // In index 0, center is 1. In index 6 (clone), center should also be 1.
+          // But visually index 6 looks like index 0.
+          // So the center logic must be relative to the display.
+          const effectiveIndex = index % cardCount;
+          const isCenter = i === index + 1;
+          
+          const isLeft = i < index + 1;
+          const gradient = gradients[i % gradients.length];
+          return (
+            <motion.div 
+              key={`${i}-${t.name}`} 
+              className="flex-shrink-0"
+              style={{ width: `calc((100% - ${GAP * 2}px) / 3)`, perspective: "1200px" }}
+              animate={{ 
+                scale: isCenter ? 1.05 : 0.9,
+                opacity: isCenter ? 1 : 0.8,
+                rotateY: isCenter ? 0 : isLeft ? 15 : -15,
+                z: isCenter ? 0 : -100
+              }}
+              transition={{ duration: 0.6, type: "spring", stiffness: 80, damping: 15 }}
+            >
+              <TestimonialCard testimonial={t} gradient={gradient} />
+            </motion.div>
+          );
+        })}
+      </motion.div>
+
+      {/* Sleek Paginator */}
+      <div className="flex justify-center gap-2 mt-12">
+        {Array.from({ length: cardCount }).map((_, i) => {
+          const isActive = index % cardCount === i;
+          return (
+            <button
+              key={i}
+              onClick={() => {
+                if (isAnimating) return;
+                setIndex(i);
+              }}
+              className="group relative h-1 transition-all duration-300"
+              style={{ width: isActive ? "20px" : "4px" }}
+            >
+              <div 
+                className="absolute inset-0 rounded-full transition-all duration-300"
+                style={{ 
+                  background: isActive ? "linear-gradient(90deg, #C4FF40, #10B981)" : "rgba(255,255,255,0.08)",
+                  opacity: isActive ? 1 : 0.4 
+                }}
+              />
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
 
 export function Landing() {
   return (
@@ -826,8 +997,13 @@ export function Landing() {
             </Link>
             <Link
               to="/signup"
-              className="text-sm px-4 py-2 rounded-lg transition-all"
-              style={{ background: "#C4FF40", color: "#000", fontWeight: 400 }}
+              className="text-sm px-4 py-2 rounded-lg transition-all hover:opacity-90 active:scale-[0.98]"
+              style={{ 
+                background: "linear-gradient(135deg, #C4FF40 0%, #10B981 100%)", 
+                color: "#000", 
+                fontWeight: 400,
+                border: "none"
+              }}
             >
               Get started
             </Link>
@@ -863,7 +1039,16 @@ export function Landing() {
             }}
           >
             Turn your data into{" "}
-            <span style={{ color: "#C4FF40" }}>instant insights</span>
+            <span 
+              style={{ 
+                background: "linear-gradient(135deg, #C4FF40 0%, #10B981 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                textTransform: "uppercase"
+              }}
+            >
+              instant insights
+            </span>
           </h1>
           <p
             className="max-w-2xl mx-auto mb-10 text-base md:text-lg px-6"
@@ -876,8 +1061,14 @@ export function Landing() {
           <div className="flex items-center justify-center gap-4 flex-wrap">
             <Link
               to="/signup"
-              className="flex items-center gap-2 px-6 py-3 rounded-xl text-sm transition-all hover:opacity-90"
-              style={{ background: "#C4FF40", color: "#000", fontWeight: 400 }}
+              className="flex items-center gap-2 px-6 py-3 rounded-xl text-sm transition-all hover:opacity-90 active:scale-[0.98]"
+              style={{ 
+                background: "linear-gradient(135deg, #C4FF40 0%, #10B981 100%)", 
+                color: "#000", 
+                fontWeight: 400,
+                border: "none",
+                boxShadow: "0 10px 15px -10px rgba(0,0,0,0.3)" 
+              }}
             >
               Start for free <ArrowRight size={16} />
             </Link>
@@ -971,40 +1162,7 @@ export function Landing() {
               Loved by data-driven teams
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((t) => (
-              <div
-                key={t.name}
-                className="p-6 rounded-2xl"
-                style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}
-              >
-                <div className="flex gap-1 mb-4">
-                  {Array.from({ length: t.rating }).map((_, i) => (
-                    <Star key={i} size={14} fill="#FBBF24" style={{ color: "#FBBF24" }} />
-                  ))}
-                </div>
-                <p className="text-sm mb-6 leading-relaxed" style={{ color: "#8892A4" }}>
-                  {t.quote}
-                </p>
-                <div className="flex items-center gap-3">
-                  <div
-                    className="flex items-center justify-center rounded-full text-sm overflow-hidden"
-                    style={{ width: "36px", height: "36px", background: "linear-gradient(135deg, #C4FF40, #7B5CF5)", color: "#000", fontWeight: 400 }}
-                  >
-                    {t.avatar.startsWith("http") ? (
-                      <img src={t.avatar} alt={t.name} className="w-full h-full object-cover" />
-                    ) : (
-                      t.avatar
-                    )}
-                  </div>
-                  <div>
-                    <p className="text-sm" style={{ color: "#fff", fontWeight: 400 }}>{t.name}</p>
-                    <p className="text-xs" style={{ color: "#6B7280" }}>{t.role}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <TestimonialCarousel />
         </div>
       </section>
 
@@ -1051,10 +1209,14 @@ export function Landing() {
                 </ul>
                 <Link
                   to="/signup"
-                  className="block w-full text-center py-2.5 rounded-xl text-sm transition-all font-medium mt-auto"
+                  className="block w-full text-center py-2.5 rounded-xl text-sm transition-all hover:opacity-90 active:scale-[0.98] mt-auto"
                   style={{
-                    background: plan.highlight ? "#C4FF40" : "rgba(255,255,255,0.08)",
+                    background: plan.highlight 
+                      ? "linear-gradient(135deg, #C4FF40 0%, #10B981 100%)" 
+                      : "rgba(255,255,255,0.08)",
                     color: plan.highlight ? "#000" : "#fff",
+                    fontWeight: 400,
+                    border: "none",
                   }}
                 >
                   {plan.cta}
@@ -1079,8 +1241,13 @@ export function Landing() {
         </p>
         <Link
           to="/signup"
-          className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base transition-all hover:opacity-90"
-          style={{ background: "#C4FF40", color: "#000", fontWeight: 400 }}
+          className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base transition-all hover:opacity-90 active:scale-[0.98]"
+          style={{ 
+            background: "linear-gradient(135deg, #C4FF40 0%, #10B981 100%)", 
+            color: "#000", 
+            fontWeight: 400,
+            border: "none"
+          }}
         >
           Start your free trial <ArrowRight size={18} />
         </Link>
