@@ -1153,62 +1153,80 @@ export function Landing() {
       </section>
 
       {/* Pricing */}
-      <section className="py-20 px-8" style={{ background: "#090B13" }}>
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="mb-3" style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 400, letterSpacing: "-1px" }}>
-              Simple, transparent pricing
+      <section className="py-24 px-8" style={{ background: "#090B13" }}>
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="mb-4" style={{ fontSize: "clamp(32px, 5vw, 56px)", fontWeight: 400, letterSpacing: "-2px" }}>
+              Transparent pricing
             </h2>
-            <p style={{ color: "#8892A4" }}>Start free. Scale as you grow.</p>
+            <p className="max-w-xl mx-auto text-lg" style={{ color: "#6B7280" }}>
+              Choose the perfect plan for your data journey. From startup to enterprise efficiency.
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {plans.map((plan) => (
-              <div
-                key={plan.name}
-                className="p-6 rounded-2xl relative flex flex-col h-full"
-                style={{
-                  background: plan.highlight ? "linear-gradient(135deg, rgba(196,255,64,0.06), rgba(123,92,245,0.06))" : "rgba(255,255,255,0.03)",
-                  border: plan.highlight ? "1px solid rgba(196,255,64,0.3)" : "1px solid rgba(255,255,255,0.06)",
-                }}
-              >
-                {plan.highlight && (
-                  <div
-                    className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-xs"
-                    style={{ background: "#C4FF40", color: "#000", fontWeight: 400 }}
-                  >
-                    Most Popular
-                  </div>
-                )}
-                <p className="text-sm mb-2" style={{ color: "#8892A4" }}>{plan.name}</p>
-                <div className="flex items-baseline gap-1 mb-1">
-                  <span style={{ fontSize: "36px", fontWeight: 400, color: "#fff" }}>{plan.price}</span>
-                  <span style={{ color: "#6B7280" }}>{plan.period}</span>
-                </div>
-                <p className="text-sm mb-6" style={{ color: "#6B7280" }}>{plan.desc}</p>
-                <ul className="space-y-3 mb-8">
-                  {plan.features.map((f) => (
-                    <li key={f} className="flex items-center gap-2 text-sm">
-                      <Check size={14} style={{ color: "#C4FF40" }} />
-                      <span style={{ color: "#8892A4" }}>{f}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  to="/signup"
-                  className="block w-full text-center py-2.5 rounded-xl text-sm transition-all hover:opacity-90 active:scale-[0.98] mt-auto"
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+            {plans.map((plan, idx) => {
+              const accents = ["#38BDF8", "#C4FF40", "#7B5CF5"];
+              const accent = accents[idx];
+              const isPro = plan.highlight;
+
+              return (
+                <div
+                  key={plan.name}
+                  className={`p-8 rounded-2xl relative transition-all duration-300 flex flex-col h-full ${isPro ? 'md:-mt-6 md:mb-6 scale-105 z-10' : 'z-0'}`}
                   style={{
-                    background: plan.highlight 
-                      ? "linear-gradient(135deg, #C4FF40 0%, #10B981 100%)" 
-                      : "rgba(255,255,255,0.08)",
-                    color: plan.highlight ? "#000" : "#fff",
-                    fontWeight: 400,
-                    border: "none",
+                    background: isPro ? "rgba(255,255,255,0.04)" : "rgba(255,255,255,0.02)",
+                    border: isPro ? `1px solid ${accent}40` : "1px solid rgba(255,255,255,0.06)",
+                    boxShadow: isPro ? `0 20px 60px -20px ${accent}25` : "none",
                   }}
                 >
-                  {plan.cta}
-                </Link>
-              </div>
-            ))}
+                  {/* Accent Top Border */}
+                  <div className="absolute top-0 left-8 right-8 h-px" style={{ background: `linear-gradient(90deg, transparent, ${accent}, transparent)` }} />
+
+                  {isPro && (
+                    <div
+                      className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-[10px] uppercase tracking-widest font-bold"
+                      style={{ background: accent, color: "#000" }}
+                    >
+                      Most Popular
+                    </div>
+                  )}
+
+                  <div className="mb-8">
+                    <p className="text-xs uppercase tracking-widest mb-2 font-bold" style={{ color: accent }}>{plan.name}</p>
+                    <div className="flex items-baseline gap-1">
+                      <span style={{ fontSize: "48px", fontWeight: 400, color: "#fff", letterSpacing: "-1px" }}>{plan.price}</span>
+                      <span className="text-sm" style={{ color: "#4A5568" }}>{plan.period}</span>
+                    </div>
+                    <p className="text-sm mt-2 leading-relaxed" style={{ color: "#8892A4" }}>{plan.desc}</p>
+                  </div>
+
+                  <ul className="space-y-4 mb-10">
+                    {plan.features.map((f) => (
+                      <li key={f} className="flex items-start gap-3 text-sm">
+                        <Check size={16} style={{ color: accent, marginTop: "2px" }} />
+                        <span style={{ color: "#D1D5DB" }}>{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <Link
+                    to="/signup"
+                    className="block w-full text-center py-3.5 rounded-2xl text-sm mt-auto transition-all hover:opacity-90 hover:-translate-y-0.5 active:scale-[0.98]"
+                    style={{
+                      background: isPro 
+                        ? "linear-gradient(135deg, #C4FF40 0%, #10B981 100%)" 
+                        : "rgba(255,255,255,0.06)",
+                      color: isPro ? "#000" : "#fff",
+                      fontWeight: 600,
+                      border: isPro ? "none" : `1px solid rgba(255,255,255,0.1)`,
+                    }}
+                  >
+                    {plan.cta}
+                  </Link>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
