@@ -17,6 +17,7 @@ import {
   Star,
   Play,
   Orbit,
+  Languages,
 } from "lucide-react";
 import { MazeBackground } from "../components/MazeBackground";
 import {
@@ -30,6 +31,10 @@ import {
   ReferenceDot,
   Label,
 } from "recharts";
+
+const Divider = () => (
+  <div className="h-[1px] w-full" style={{ background: "rgba(255, 255, 255, 0.06)" }} />
+);
 
 /* ── Dashboard Demo data ── */
 const dashboardMetrics = [
@@ -60,8 +65,8 @@ const dashboardMetrics = [
     chartTitle: "User Growth",
     primaryKey: "users",
     secondaryKey: "newUsers",
-    primaryColor: "#38BDF8",
-    secondaryColor: "#3B82F6",
+    primaryColor: "#C4FF40",
+    secondaryColor: "#10B981",
     data: [
       { month: "Jan", users: 8200, newUsers: 1400 },
       { month: "Feb", users: 12500, newUsers: 600 },
@@ -80,8 +85,8 @@ const dashboardMetrics = [
     chartTitle: "Conversion Trend",
     primaryKey: "conversion",
     secondaryKey: "benchmark",
-    primaryColor: "#7B5CF5",
-    secondaryColor: "#3B82F6",
+    primaryColor: "#C4FF40",
+    secondaryColor: "#10B981",
     data: [
       { month: "Jan", conversion: 3.2, benchmark: 3.5 },
       { month: "Feb", conversion: 5.4, benchmark: 3.2 },
@@ -100,8 +105,8 @@ const dashboardMetrics = [
     chartTitle: "Deal Size Trend",
     primaryKey: "dealSize",
     secondaryKey: "target",
-    primaryColor: "#F59E0B",
-    secondaryColor: "#EF4444",
+    primaryColor: "#C4FF40",
+    secondaryColor: "#10B981",
     data: [
       { month: "Jan", dealSize: 5.8, target: 6.0 },
       { month: "Feb", dealSize: 3.2, target: 6.5 },
@@ -366,7 +371,7 @@ function DashboardDemo() {
 
 const features = [
   {
-    icon: Brain,
+    icon: Languages,
     title: "Natural Language Queries",
     desc: "Ask questions in plain English and get instant AI-powered answers from your data.",
     color: "#7B5CF5",
@@ -382,24 +387,6 @@ const features = [
     title: "Predictive Insights",
     desc: "Get ahead of trends with AI-powered forecasts and anomaly detection.",
     color: "#38BDF8",
-  },
-  {
-    icon: MessageSquare,
-    title: "Collaborative Stories",
-    desc: "Share AI-generated data stories with your team with a single click.",
-    color: "#FB923C",
-  },
-  {
-    icon: Database,
-    title: "100+ Integrations",
-    desc: "Connect to Salesforce, HubSpot, Google Analytics, Snowflake, and more.",
-    color: "#34D399",
-  },
-  {
-    icon: Shield,
-    title: "Enterprise Security",
-    desc: "SOC 2 Type II certified with end-to-end encryption and data governance.",
-    color: "#F472B6",
   },
 ];
 
@@ -1094,6 +1081,8 @@ export function Landing() {
         <DashboardDemo />
       </section>
 
+      <Divider />
+
       {/* Features */}
       <section className="py-20 px-8">
         <div className="max-w-6xl mx-auto">
@@ -1119,11 +1108,7 @@ export function Landing() {
             {features.map((feature) => (
               <div
                 key={feature.title}
-                className="p-6 rounded-2xl transition-all duration-200 hover:translate-y-[-2px]"
-                style={{
-                  background: "rgba(255,255,255,0.03)",
-                  border: "1px solid rgba(255,255,255,0.06)",
-                }}
+                className="p-6 transition-all duration-200 hover:translate-y-[-2px]"
               >
                 <div
                   className="flex items-center justify-center rounded-xl mb-4"
@@ -1136,6 +1121,7 @@ export function Landing() {
                 >
                   <feature.icon size={20} style={{ color: feature.color }} />
                 </div>
+
                 <h3
                   className="mb-2"
                   style={{ fontSize: "16px", fontWeight: 400, color: "#fff" }}
@@ -1227,8 +1213,12 @@ export function Landing() {
         </div>
       </section>
 
+      <Divider />
+
       {/* CTA */}
       <section className="py-24 px-8 text-center relative overflow-hidden">
+        <MazeBackground />
+        <div className="relative z-10 max-w-4xl mx-auto">
 
         <h2
           className="max-w-2xl mx-auto mb-6"
@@ -1251,7 +1241,8 @@ export function Landing() {
         >
           Start your free trial <ArrowRight size={18} />
         </Link>
-      </section>
+      </div>
+    </section>
 
       {/* Footer */}
       <footer
@@ -1292,7 +1283,6 @@ export function Landing() {
             style={{ borderTop: "1px solid rgba(255,255,255,0.06)", color: "#4A5568" }}
           >
             <p>© 2026 Doppler, Inc. All rights reserved.</p>
-            <p>Built with ❤️ for data-driven teams</p>
           </div>
         </div>
       </footer>
