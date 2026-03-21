@@ -132,7 +132,7 @@ const AnchoredTooltip = (props: any) => {
           y={cy - 44}
           width={70}
           height={26}
-          rx={0}
+          rx={3}
           fill={color}
         />
         <path

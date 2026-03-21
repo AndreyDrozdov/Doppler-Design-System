@@ -50,6 +50,8 @@ import {
 import { toast } from "sonner";
 
 const sections = [
+  "Colors",
+  "Typography",
   "Buttons",
   "Inputs",
   "Badges & Tags",
@@ -102,7 +104,7 @@ function Label({ children }: { children: React.ReactNode }) {
 }
 
 export function ComponentLibrary() {
-  const [activeSection, setActiveSection] = useState("Buttons");
+  const [activeSection, setActiveSection] = useState("Typography");
   const [toggles, setToggles] = useState({ a: true, b: false, c: true });
   const [checkboxes, setCheckboxes] = useState({ a: true, b: false, c: true });
   const [inputVal, setInputVal] = useState("");
@@ -142,6 +144,149 @@ export function ComponentLibrary() {
           <h1 style={{ fontSize: "24px", fontWeight: 400, color: "#fff" }}>Component Library</h1>
           <p style={{ color: "#6B7280", fontSize: "14px" }}>Doppler UI components and design system</p>
         </div>
+
+        {/* TYPOGRAPHY */}
+        {activeSection === "Typography" && (
+          <div className="space-y-6">
+            <div style={CARD}>
+              <SectionTitle label="Headings" />
+              <div className="space-y-8">
+                <div>
+                  <Label>H1 - Hero Title</Label>
+                  <h1 style={{ fontSize: "clamp(32px, 8vw, 76px)", fontWeight: 600, color: "#fff", lineHeight: 1.1, letterSpacing: "-2px" }}>
+                    Instant Insights
+                  </h1>
+                  <p className="text-[10px] mt-2 font-mono text-white/40">clamp(32px, 8vw, 76px) / SemiBold / -2px / 1.1 LH</p>
+                </div>
+
+                <div>
+                  <Label>H2 - Section Heading</Label>
+                  <h2 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 400, color: "#fff", lineHeight: 1.2, letterSpacing: "-1px" }}>
+                    Your data, explained.
+                  </h2>
+                  <p className="text-[10px] mt-2 font-mono text-white/40">clamp(28px, 4vw, 48px) / Regular / -1px / 1.2 LH</p>
+                </div>
+
+                <div>
+                  <Label>H3 - Card / Sub-heading</Label>
+                  <h3 style={{ fontSize: "20px", fontWeight: 400, color: "#fff" }}>
+                    Data Source Integration
+                  </h3>
+                  <p className="text-[10px] mt-2 font-mono text-white/40">20px / Regular / 0px / 1.1 LH</p>
+                </div>
+              </div>
+            </div>
+
+            <div style={CARD}>
+              <SectionTitle label="Body Text" />
+              <div className="space-y-6">
+                <div>
+                  <Label>Body Large</Label>
+                  <p style={{ fontSize: "18px", color: "#8892A4", lineHeight: 1.7 }}>
+                    The quick brown fox jumps over the lazy dog. Doppler connects your sources and lets you ask questions in plain English.
+                  </p>
+                </div>
+                <div>
+                  <Label>Body Standard (UI)</Label>
+                  <p style={{ fontSize: "14px", color: "#8892A4", lineHeight: 1.6 }}>
+                    The quick brown fox jumps over the lazy dog. Used for primary UI text, labels, and small descriptions.
+                  </p>
+                </div>
+                <div>
+                  <Label>Small / Metadata</Label>
+                  <p style={{ fontSize: "12px", color: "#4A5568" }}>
+                    The quick brown fox jumps over the lazy dog. Used for timestamps, metadata, and fine-print details.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div style={CARD}>
+              <SectionTitle label="Display & Numbers (Data Focused)" />
+              <div className="space-y-6">
+                <div>
+                  <Label>Space Grotesk (Metric Values)</Label>
+                  <p style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: "36px", color: "#C4FF40", letterSpacing: "-1px" }}>
+                    $2.6M +14%
+                  </p>
+                  <p className="text-xs text-white/40 mt-1">Special high-clarity font for dashboard metrics and data visualizations.</p>
+                </div>
+                <div>
+                  <Label>Code & Mono</Label>
+                  <p className="font-mono" style={{ fontSize: "13px", color: "#38BDF8" }}>
+                    doppler analyze --source=production --type=anomalies
+                  </p>
+                  <p className="text-xs text-white/40 mt-1">Used for hex codes, CLI commands, and technical logs.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* COLORS */}
+        {activeSection === "Colors" && (
+          <div className="space-y-6">
+            <div style={CARD}>
+              <SectionTitle label="Brand Colors" />
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {[
+                  { name: "Doppler Lime", hex: "#C4FF40", usage: "Primary actions, highlights, branding" },
+                  { name: "Doppler Purple", hex: "#7B5CF5", usage: "Secondary accents, data visualization" },
+                  { name: "Doppler Blue", hex: "#38BDF8", usage: "Tertiary accents, information callouts" },
+                ].map((c) => (
+                  <div key={c.hex} className="space-y-3">
+                    <div className="h-24 rounded-xl shadow-lg" style={{ background: c.hex }} />
+                    <div>
+                      <p className="text-sm" style={{ color: "#fff", fontWeight: 400 }}>{c.name}</p>
+                      <p className="text-xs font-mono" style={{ color: c.hex }}>{c.hex}</p>
+                      <p className="text-[11px] mt-1" style={{ color: "#6B7280" }}>{c.usage}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div style={CARD}>
+              <SectionTitle label="Neutral Colors" />
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {[
+                  { name: "Deep Background", hex: "#090B13", usage: "Main app container" },
+                  { name: "Surface (Card)", hex: "#0D0F1A", usage: "Sidebars, card containers" },
+                  { name: "Border / Subtle", hex: "rgba(255,255,255,0.06)", usage: "Structural dividers" },
+                  { name: "Text Secondary", hex: "#8892A4", usage: "Body text, metadata" },
+                ].map((c) => (
+                  <div key={c.name} className="space-y-3">
+                    <div className="h-16 rounded-lg border border-white/5 shadow-inner" style={{ background: c.hex }} />
+                    <div>
+                      <p className="text-sm" style={{ color: "#fff", fontWeight: 400 }}>{c.name}</p>
+                      <p className="text-xs font-mono" style={{ color: "#6B7280" }}>{c.hex}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div style={CARD}>
+              <SectionTitle label="Functional Colors" />
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {[
+                  { name: "Success", hex: "#10B981" },
+                  { name: "Warning", hex: "#F59E0B" },
+                  { name: "Danger / Error", hex: "#EF4444" },
+                  { name: "Informational", hex: "#3B82F6" },
+                ].map((c) => (
+                  <div key={c.name} className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full" style={{ background: c.hex }} />
+                    <div>
+                      <p className="text-xs" style={{ color: "#fff", fontWeight: 400 }}>{c.name}</p>
+                      <p className="text-[10px] font-mono" style={{ color: "#6B7280" }}>{c.hex}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* BUTTONS */}
         {activeSection === "Buttons" && (
