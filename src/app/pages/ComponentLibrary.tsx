@@ -91,14 +91,14 @@ const CARD = {
 
 function SectionTitle({ label }: { label: string }) {
   return (
-    <h2 style={{ fontSize: "16px", fontWeight: 300, color: "#fff", marginBottom: "16px" }}>
+    <h2 style={{ fontSize: "16px", fontWeight: 400, color: "#fff", marginBottom: "16px" }}>
       {label}
     </h2>
   );
 }
 
 function Label({ children }: { children: React.ReactNode }) {
-  return <p className="text-xs mb-3" style={{ color: "#4A5568", fontWeight: 300 }}>{children}</p>;
+  return <p className="text-xs mb-3" style={{ color: "#4A5568", fontWeight: 400 }}>{children}</p>;
 }
 
 export function ComponentLibrary() {
@@ -139,7 +139,7 @@ export function ComponentLibrary() {
 
       <main className="flex-1 p-6 overflow-auto">
         <div className="mb-6">
-          <h1 style={{ fontSize: "24px", fontWeight: 300, color: "#fff" }}>Component Library</h1>
+          <h1 style={{ fontSize: "24px", fontWeight: 400, color: "#fff" }}>Component Library</h1>
           <p style={{ color: "#6B7280", fontSize: "14px" }}>Doppler UI components and design system</p>
         </div>
 
@@ -158,7 +158,7 @@ export function ComponentLibrary() {
                     style={{
                       background: "#C4FF40",
                       color: "#000",
-                      fontWeight: 300,
+                      fontWeight: 400,
                       padding: size === "sm" ? "6px 14px" : size === "lg" ? "14px 28px" : "10px 20px",
                       fontSize: size === "sm" ? "12px" : size === "lg" ? "15px" : "13px",
                     }}
@@ -195,7 +195,7 @@ export function ComponentLibrary() {
                 <button className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm" style={{ background: "rgba(239,68,68,0.1)", color: "#EF4444", border: "1px solid rgba(239,68,68,0.2)" }}>
                   <Trash2 size={14} /> Danger
                 </button>
-                <button className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm" style={{ background: "#C4FF40", color: "#000", fontWeight: 300 }}>
+                <button className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm" style={{ background: "#C4FF40", color: "#000", fontWeight: 400 }}>
                   <Plus size={14} /> Add New
                 </button>
                 <button className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm" style={{ background: "rgba(123,92,245,0.1)", color: "#7B5CF5", border: "1px solid rgba(123,92,245,0.2)" }}>
@@ -204,7 +204,7 @@ export function ComponentLibrary() {
                 <button className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm" style={{ background: "rgba(255,255,255,0.04)", color: "#8892A4" }} disabled>
                   Disabled
                 </button>
-                <button className="flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-sm" style={{ background: "rgba(196,255,64,0.5)", color: "#000", fontWeight: 300 }}>
+                <button className="flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-sm" style={{ background: "rgba(196,255,64,0.5)", color: "#000", fontWeight: 400 }}>
                   <div className="w-4 h-4 rounded-full border-2 border-black/30 border-t-black animate-spin" />
                   Loading...
                 </button>
@@ -268,7 +268,7 @@ export function ComponentLibrary() {
                   className="flex-1"
                   style={{ accentColor: "#C4FF40" }}
                 />
-                <span className="text-sm w-8 text-right" style={{ color: "#C4FF40", fontWeight: 300 }}>{sliderVal}%</span>
+                <span className="text-sm w-8 text-right" style={{ color: "#C4FF40", fontWeight: 400 }}>{sliderVal}%</span>
               </div>
             </div>
 
@@ -357,11 +357,11 @@ export function ComponentLibrary() {
                         <circle cx="18" cy="18" r="14" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="3" />
                         <circle cx="18" cy="18" r="14" fill="none" stroke={c.color} strokeWidth="3" strokeDasharray={`${(c.value / 100) * 88} 88`} strokeLinecap="round" />
                       </svg>
-                      <div className="absolute inset-0 flex items-center justify-center text-xs" style={{ color: c.color, fontWeight: 300 }}></div>
+                      <div className="absolute inset-0 flex items-center justify-center text-xs" style={{ color: c.color, fontWeight: 400 }}></div>
                     </div>
                     <div>
                       <p className="text-xs" style={{ color: "#8892A4" }}>{c.label} Confidence</p>
-                      <p className="text-sm" style={{ color: "#fff", fontWeight: 300 }}>{c.value}%</p>
+                      <p className="text-sm" style={{ color: "#fff", fontWeight: 400 }}>{c.value}%</p>
                     </div>
                   </div>
                 ))}
@@ -597,7 +597,7 @@ export function ComponentLibrary() {
                       { name: "Report Builder", rev: "$54K", status: "error", growth: -4 },
                     ].map((row, i) => (
                       <tr key={i} className="transition-colors hover:bg-white/[0.02]" style={{ borderTop: "1px solid rgba(255,255,255,0.04)" }}>
-                        <td className="px-4 py-3" style={{ color: "#fff", fontWeight: 300 }}>{row.name}</td>
+                        <td className="px-4 py-3" style={{ color: "#fff", fontWeight: 400 }}>{row.name}</td>
                         <td className="px-4 py-3" style={{ color: "#fff" }}>{row.rev}</td>
                         <td className="px-4 py-3">
                           <span className="text-xs px-2 py-1 rounded-full" style={{
@@ -639,7 +639,7 @@ export function ComponentLibrary() {
               <Label>Avatar Sizes</Label>
               <div className="flex items-end gap-4 mb-6">
                 {[20, 28, 36, 48, 64].map((size) => (
-                  <div key={size} className="flex items-center justify-center rounded-full text-xs overflow-hidden" style={{ width: size, height: size, background: "linear-gradient(135deg, #C4FF40, #7B5CF5)", color: "#000", fontWeight: 300, fontSize: size < 28 ? 8 : size < 48 ? 10 : 16 }}>
+                  <div key={size} className="flex items-center justify-center rounded-full text-xs overflow-hidden" style={{ width: size, height: size, background: "linear-gradient(135deg, #C4FF40, #7B5CF5)", color: "#000", fontWeight: 400, fontSize: size < 28 ? 8 : size < 48 ? 10 : 16 }}>
                     <img src={`https://i.pravatar.cc/150?u=${size}`} alt="Avatar" className="w-full h-full object-cover" />
                   </div>
                 ))}
@@ -654,7 +654,7 @@ export function ComponentLibrary() {
                 ].map((s) => (
                   <div key={s.label} className="flex flex-col items-center gap-2">
                     <div className="relative">
-                      <div className="flex items-center justify-center rounded-full text-sm overflow-hidden" style={{ width: "44px", height: "44px", background: "linear-gradient(135deg, #C4FF40, #7B5CF5)", color: "#000", fontWeight: 300 }}>
+                      <div className="flex items-center justify-center rounded-full text-sm overflow-hidden" style={{ width: "44px", height: "44px", background: "linear-gradient(135deg, #C4FF40, #7B5CF5)", color: "#000", fontWeight: 400 }}>
                         <img src={`https://i.pravatar.cc/150?u=${s.label}`} alt="User" className="w-full h-full object-cover" />
                       </div>
                       <div className="absolute bottom-0 right-0 w-3 h-3 rounded-full border-2" style={{ background: s.color, borderColor: "#090B13" }} />
@@ -672,11 +672,11 @@ export function ComponentLibrary() {
                   { name: "Marcus W.", role: "Analyst", initials: "MW" },
                 ].map((m) => (
                   <div key={m.name} className="flex items-center gap-3 p-3 rounded-xl" style={{ background: "#161A28", border: "1px solid rgba(255,255,255,0.06)" }}>
-                    <div className="flex items-center justify-center rounded-full text-xs overflow-hidden" style={{ width: "36px", height: "36px", background: "linear-gradient(135deg, #C4FF40, #7B5CF5)", color: "#000", fontWeight: 300 }}>
+                    <div className="flex items-center justify-center rounded-full text-xs overflow-hidden" style={{ width: "36px", height: "36px", background: "linear-gradient(135deg, #C4FF40, #7B5CF5)", color: "#000", fontWeight: 400 }}>
                       <img src={`https://i.pravatar.cc/150?u=${m.name}`} alt={m.name} className="w-full h-full object-cover" />
                     </div>
                     <div>
-                      <p className="text-sm" style={{ color: "#fff", fontWeight: 300 }}>{m.name}</p>
+                      <p className="text-sm" style={{ color: "#fff", fontWeight: 400 }}>{m.name}</p>
                       <p className="text-xs" style={{ color: "#6B7280" }}>{m.role}</p>
                     </div>
                   </div>

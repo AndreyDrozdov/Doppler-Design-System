@@ -98,7 +98,7 @@ export function Settings() {
       <main className="flex-1 p-6 overflow-auto">
         {activeSection === "profile" && (
           <div>
-            <h2 className="mb-6" style={{ fontSize: "20px", fontWeight: 300, color: "#fff" }}>Profile Settings</h2>
+            <h2 className="mb-6" style={{ fontSize: "20px", fontWeight: 400, color: "#fff" }}>Profile Settings</h2>
             <div className="p-6 rounded-2xl mb-4" style={CARD}>
               {/* Avatar */}
               <div className="flex items-center gap-4 mb-6 pb-6" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
@@ -150,7 +150,7 @@ export function Settings() {
               <button
                 onClick={handleSave}
                 className="mt-4 px-5 py-2.5 rounded-xl text-sm"
-                style={{ background: "#C4FF40", color: "#000", fontWeight: 300 }}
+                style={{ background: "#C4FF40", color: "#000", fontWeight: 400 }}
               >
                 Save Changes
               </button>
@@ -188,7 +188,7 @@ export function Settings() {
 
         {activeSection === "notifications" && (
           <div>
-            <h2 className="mb-6" style={{ fontSize: "20px", fontWeight: 300, color: "#fff" }}>Notifications</h2>
+            <h2 className="mb-6" style={{ fontSize: "20px", fontWeight: 400, color: "#fff" }}>Notifications</h2>
             <div className="p-6 rounded-2xl" style={CARD}>
               <div className="space-y-1">
                 {Object.entries(notifications).map(([key, value]) => {
@@ -207,7 +207,7 @@ export function Settings() {
                       style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}
                     >
                       <div>
-                        <p className="text-sm" style={{ color: "#fff", fontWeight: 300 }}>
+                        <p className="text-sm" style={{ color: "#fff", fontWeight: 400 }}>
                           {labels[key]?.label}
                         </p>
                         <p className="text-xs mt-0.5" style={{ color: "#6B7280" }}>
@@ -240,7 +240,7 @@ export function Settings() {
               <button
                 onClick={handleSave}
                 className="mt-4 px-5 py-2.5 rounded-xl text-sm"
-                style={{ background: "#C4FF40", color: "#000", fontWeight: 300 }}
+                style={{ background: "#C4FF40", color: "#000", fontWeight: 400 }}
               >
                 Save Preferences
               </button>
@@ -250,7 +250,7 @@ export function Settings() {
 
         {activeSection === "security" && (
           <div>
-            <h2 className="mb-6" style={{ fontSize: "20px", fontWeight: 300, color: "#fff" }}>Security</h2>
+            <h2 className="mb-6" style={{ fontSize: "20px", fontWeight: 400, color: "#fff" }}>Security</h2>
             <div className="space-y-4">
               <div className="p-6 rounded-2xl" style={CARD}>
                 <h3 className="mb-4" style={{ fontSize: "15px", fontWeight: 400, color: "#fff" }}>Password</h3>
@@ -276,7 +276,7 @@ export function Settings() {
                 <button
                   onClick={() => toast.success("Password updated successfully")}
                   className="mt-4 px-5 py-2.5 rounded-xl text-sm"
-                  style={{ background: "#C4FF40", color: "#000", fontWeight: 300 }}
+                  style={{ background: "#C4FF40", color: "#000", fontWeight: 400 }}
                 >
                   Update Password
                 </button>
@@ -339,7 +339,7 @@ export function Settings() {
         {activeSection === "team" && (
           <div>
             <div className="flex items-center justify-between mb-6">
-              <h2 style={{ fontSize: "20px", fontWeight: 300, color: "#fff" }}>Team Management</h2>
+              <h2 style={{ fontSize: "20px", fontWeight: 400, color: "#fff" }}>Team Management</h2>
               <button
                 onClick={() => toast.success("Invite sent!")}
                 className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm"
@@ -358,7 +358,7 @@ export function Settings() {
                   >
                     <div
                       className="flex items-center justify-center rounded-full text-xs flex-shrink-0 overflow-hidden"
-                      style={{ width: "36px", height: "36px", background: "linear-gradient(135deg, #C4FF40, #7B5CF5)", color: "#000", fontWeight: 300 }}
+                      style={{ width: "36px", height: "36px", background: "linear-gradient(135deg, #C4FF40, #7B5CF5)", color: "#000", fontWeight: 400 }}
                     >
                       {member.avatar.startsWith("http") ? (
                         <img src={member.avatar} alt={member.name} className="w-full h-full object-cover" />
@@ -367,7 +367,7 @@ export function Settings() {
                       )}
                     </div>
                     <div className="flex-1">
-                      <p className="text-sm" style={{ color: "#fff", fontWeight: 300 }}>{member.name}</p>
+                      <p className="text-sm" style={{ color: "#fff", fontWeight: 400 }}>{member.name}</p>
                       <p className="text-xs" style={{ color: "#6B7280" }}>{member.email}</p>
                     </div>
                     <span
@@ -391,7 +391,7 @@ export function Settings() {
 
         {activeSection === "billing" && (
           <div>
-            <h2 className="mb-6" style={{ fontSize: "20px", fontWeight: 300, color: "#fff" }}>Billing & Plan</h2>
+            <h2 className="mb-6" style={{ fontSize: "20px", fontWeight: 400, color: "#fff" }}>Billing & Plan</h2>
             <div
               className="p-6 rounded-2xl mb-4"
               style={{ background: "linear-gradient(135deg, rgba(196,255,64,0.06), rgba(123,92,245,0.06))", border: "1px solid rgba(196,255,64,0.2)" }}
@@ -404,7 +404,7 @@ export function Settings() {
                 </div>
                 <button
                   className="px-4 py-2 rounded-xl text-sm"
-                  style={{ background: "#C4FF40", color: "#000", fontWeight: 300 }}
+                  style={{ background: "#C4FF40", color: "#000", fontWeight: 400 }}
                 >
                   Upgrade to Enterprise
                 </button>
@@ -418,7 +418,7 @@ export function Settings() {
                   <div key={u.label}>
                     <p className="text-xs mb-1" style={{ color: "#6B7280" }}>{u.label}</p>
                     <p className="text-sm" style={{ color: "#fff" }}>
-                      <span style={{ fontWeight: 300 }}>{u.used}</span>
+                      <span style={{ fontWeight: 400 }}>{u.used}</span>
                       <span style={{ color: "#4A5568" }}> / {u.limit}</span>
                     </p>
                   </div>

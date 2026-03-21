@@ -128,7 +128,7 @@ export function Root() {
             <div className="mt-6 mb-2">
               <p
                 className="text-xs px-3 mb-2"
-                style={{ color: "#4A5568", fontWeight: 300 }}
+                style={{ color: "#4A5568", fontWeight: 400 }}
               >
                 AI TOOLS
               </p>
@@ -211,7 +211,7 @@ export function Root() {
                   height: "28px",
                   background: "linear-gradient(135deg, #C4FF40, #7B5CF5)",
                   color: "#000",
-                  fontWeight: 300,
+                  fontWeight: 400,
                 }}
               >
                 <img src="https://i.pravatar.cc/150?u=alex" alt="Alex Johnson" className="w-full h-full object-cover" />

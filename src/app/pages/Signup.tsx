@@ -57,7 +57,7 @@ export function Signup() {
                   height: "28px",
                   background: i <= step ? "#C4FF40" : "rgba(255,255,255,0.08)",
                   color: i <= step ? "#000" : "#6B7280",
-                  fontWeight: 300,
+                  fontWeight: 400,
                 }}
               >
                 {i < step ? <Check size={14} /> : i + 1}
@@ -190,7 +190,7 @@ export function Signup() {
                       <div className="flex items-center gap-2">
                         <p className="text-sm" style={{ color: "#fff", fontWeight: 400 }}>{plan.name}</p>
                         {plan.recommended && (
-                          <span className="text-xs px-2 py-0.5 rounded-full" style={{ background: "#C4FF40", color: "#000", fontWeight: 300 }}>
+                          <span className="text-xs px-2 py-0.5 rounded-full" style={{ background: "#C4FF40", color: "#000", fontWeight: 400 }}>
                             Recommended
                           </span>
                         )}
@@ -198,7 +198,7 @@ export function Signup() {
                       <p className="text-xs" style={{ color: "#6B7280" }}>{plan.desc}</p>
                     </div>
                     <div className="flex items-center gap-2">
-                      <span style={{ color: "#fff", fontWeight: 300 }}>{plan.price}</span>
+                      <span style={{ color: "#fff", fontWeight: 400 }}>{plan.price}</span>
                       <div
                         className="w-5 h-5 rounded-full flex items-center justify-center"
                         style={{ background: form.plan === plan.id ? "#C4FF40" : "rgba(255,255,255,0.1)" }}
@@ -216,7 +216,7 @@ export function Signup() {
             onClick={handleNext}
             disabled={loading}
             className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm mt-6 transition-all"
-            style={{ background: loading ? "rgba(196,255,64,0.5)" : "#C4FF40", color: "#000", fontWeight: 300 }}
+            style={{ background: loading ? "rgba(196,255,64,0.5)" : "#C4FF40", color: "#000", fontWeight: 400 }}
           >
             {loading ? (
               <div className="w-4 h-4 rounded-full border-2 border-black/30 border-t-black animate-spin" />

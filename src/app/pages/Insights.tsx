@@ -158,7 +158,7 @@ export function Insights() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 style={{ fontSize: "24px", fontWeight: 300, color: "#fff", marginBottom: "4px" }}>
+          <h1 style={{ fontSize: "24px", fontWeight: 400, color: "#fff", marginBottom: "4px" }}>
             AI Insights
           </h1>
           <p style={{ color: "#6B7280", fontSize: "14px" }}>
@@ -265,7 +265,7 @@ export function Insights() {
                   </div>
                 </div>
 
-                <h3 className="mb-2" style={{ fontSize: "16px", fontWeight: 300, color: "#fff" }}>
+                <h3 className="mb-2" style={{ fontSize: "16px", fontWeight: 400, color: "#fff" }}>
                   {insight.title}
                 </h3>
                 <p className="text-sm leading-relaxed mb-4" style={{ color: "#8892A4" }}>

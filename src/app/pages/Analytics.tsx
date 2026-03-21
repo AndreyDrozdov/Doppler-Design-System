@@ -110,7 +110,7 @@ export function Analytics() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 style={{ fontSize: "24px", fontWeight: 300, color: "#fff", marginBottom: "4px" }}>
+          <h1 style={{ fontSize: "24px", fontWeight: 400, color: "#fff", marginBottom: "4px" }}>
             Analytics
           </h1>
           <p style={{ color: "#6B7280", fontSize: "14px" }}>

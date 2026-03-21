@@ -83,7 +83,7 @@ export function Login() {
           <div className="flex items-center gap-3">
             <div
               className="flex items-center justify-center rounded-full text-xs overflow-hidden"
-              style={{ width: "32px", height: "32px", background: "linear-gradient(135deg, #C4FF40, #7B5CF5)", color: "#000", fontWeight: 300 }}
+              style={{ width: "32px", height: "32px", background: "linear-gradient(135deg, #C4FF40, #7B5CF5)", color: "#000", fontWeight: 400 }}
             >
               <img src="https://i.pravatar.cc/150?u=sarah" alt="Sarah Chen" className="w-full h-full object-cover" />
             </div>
@@ -188,7 +188,7 @@ export function Login() {
               style={{
                 background: loading ? "rgba(196,255,64,0.5)" : "#C4FF40",
                 color: "#000",
-                fontWeight: 300,
+                fontWeight: 400,
               }}
             >
               {loading ? (

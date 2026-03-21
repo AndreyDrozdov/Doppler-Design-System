@@ -204,9 +204,9 @@ function DashboardDemo() {
     >
 
       {/* Dashboard content */}
-      <div className="p-6">
+      <div className="p-4 md:p-6">
         {/* Stat cards */}
-        <div className="grid grid-cols-4 gap-3 mb-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-3 mb-4">
           {dashboardMetrics.map((m, i) => {
             const isActive = i === activeMetric;
             return (
@@ -238,13 +238,13 @@ function DashboardDemo() {
                     }}
                   />
                 )}
-                <p className="text-[11px] mb-1 uppercase tracking-wider font-medium" style={{ color: isActive ? m.primaryColor : "#6B7280" }}>
+                <p className="text-[10px] md:text-[11px] mb-1 uppercase tracking-wider font-medium" style={{ color: isActive ? m.primaryColor : "#6B7280" }}>
                   {m.label}
                 </p>
-                <div className="flex items-center justify-center gap-2 mt-0.5">
-                  <p className="text-2xl" style={{ fontWeight: 400, color: "#fff", fontFamily: "'Space Grotesk', sans-serif" }}>{m.value}</p>
+                <div className="flex items-center justify-center gap-1.5 md:gap-2 mt-0.5">
+                  <p className="text-lg md:text-2xl" style={{ fontWeight: 400, color: "#fff", fontFamily: "'Space Grotesk', sans-serif" }}>{m.value}</p>
                   <span
-                    className="text-xs px-1.5 py-0.5 rounded-full font-medium"
+                    className="hidden sm:inline-block text-[10px] md:text-xs px-1.5 py-0.5 rounded-full font-medium"
                     style={{
                       background: m.primaryColor + "20",
                       color: m.primaryColor,
@@ -829,7 +829,7 @@ export function Landing() {
               className="text-sm px-4 py-2 rounded-lg transition-all"
               style={{ background: "#C4FF40", color: "#000", fontWeight: 400 }}
             >
-              Get started free
+              Get started
             </Link>
           </div>
         </div>
@@ -849,14 +849,14 @@ export function Landing() {
             }}
           >
             <Sparkles size={14} />
-            AI-Powered Data Intelligence Platform
+            AI-Powered Data Intelligence
             <ChevronRight size={14} />
           </div>
 
           <h1
-            className="max-w-4xl mx-auto mb-6"
+            className="max-w-4xl mx-auto mb-6 px-4"
             style={{
-              fontSize: "clamp(40px, 6vw, 76px)",
+              fontSize: "clamp(32px, 8vw, 76px)",
               fontWeight: 600,
               lineHeight: 1.1,
               letterSpacing: "-2px",
@@ -866,7 +866,7 @@ export function Landing() {
             <span style={{ color: "#C4FF40" }}>instant insights</span>
           </h1>
           <p
-            className="max-w-2xl mx-auto mb-10 text-lg"
+            className="max-w-2xl mx-auto mb-10 text-base md:text-lg px-6"
             style={{ color: "#8892A4", lineHeight: 1.7 }}
           >
             Doppler connects to your data sources and lets you ask questions in plain

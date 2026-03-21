@@ -136,7 +136,7 @@ export function DataSources() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 style={{ fontSize: "24px", fontWeight: 300, color: "#fff", marginBottom: "4px" }}>
+          <h1 style={{ fontSize: "24px", fontWeight: 400, color: "#fff", marginBottom: "4px" }}>
             Data Sources
           </h1>
           <p style={{ color: "#6B7280", fontSize: "14px" }}>
@@ -205,7 +205,7 @@ export function DataSources() {
                   {/* Icon */}
                   <div
                     className="flex items-center justify-center rounded-xl text-sm flex-shrink-0"
-                    style={{ width: "44px", height: "44px", background: `${source.color}20`, color: source.color, fontWeight: 300, fontSize: "13px" }}
+                    style={{ width: "44px", height: "44px", background: `${source.color}20`, color: source.color, fontWeight: 400, fontSize: "13px" }}
                   >
                     {source.icon}
                   </div>
@@ -288,7 +288,7 @@ export function DataSources() {
             <div className="flex items-center justify-between mb-3">
               <div
                 className="flex items-center justify-center rounded-lg text-xs"
-                style={{ width: "36px", height: "36px", background: `${int.color}20`, color: int.color === "#fff" ? "#8892A4" : int.color, fontWeight: 300, fontSize: "12px" }}
+                style={{ width: "36px", height: "36px", background: `${int.color}20`, color: int.color === "#fff" ? "#8892A4" : int.color, fontWeight: 400, fontSize: "12px" }}
               >
                 {int.icon}
               </div>
